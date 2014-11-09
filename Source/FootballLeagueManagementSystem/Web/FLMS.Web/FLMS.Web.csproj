@@ -175,7 +175,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -255,6 +254,16 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\FLMS.Data.Models\FLMS.Data.Models.csproj">
+      <Project>{ee07b20f-6ba4-4792-b0b1-7f31b113cfbb}</Project>
+      <Name>FLMS.Data.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\FLMS.Data\FLMS.Data.csproj">
+      <Project>{536c4653-5d69-4253-8069-6469563273ad}</Project>
+      <Name>FLMS.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

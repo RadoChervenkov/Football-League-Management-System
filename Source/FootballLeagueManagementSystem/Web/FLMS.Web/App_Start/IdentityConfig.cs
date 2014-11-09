@@ -11,6 +11,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using FLMS.Web.Models;
+using FLMS.Data.Models;
+using FLMS.Data;
 
 namespace FLMS.Web
 {

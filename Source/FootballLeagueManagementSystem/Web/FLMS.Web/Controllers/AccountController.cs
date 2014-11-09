@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using FLMS.Web.Models;
+using FLMS.Data.Models;
 
 namespace FLMS.Web.Controllers
 {
