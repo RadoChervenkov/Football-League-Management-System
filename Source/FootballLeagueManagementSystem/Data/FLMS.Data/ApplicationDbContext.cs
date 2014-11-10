@@ -1,17 +1,16 @@
-﻿using FLMS.Data.Models;
-using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FLMS.Data
+﻿namespace FLMS.Data
 {
+    using System.Data.Entity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+
+    using FLMS.Data.Migrations;
+    using FLMS.Data.Models;
+
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext() : base("DefaultConnection", throwIfV1Schema: false)
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
         }
 
         public static ApplicationDbContext Create()
