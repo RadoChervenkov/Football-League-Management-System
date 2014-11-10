@@ -54,9 +54,12 @@
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="League.cs" />
+    <Compile Include="MatchResult.cs" />
+    <Compile Include="MatchState.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerPosition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Season.cs" />
     <Compile Include="Team.cs" />
     <Compile Include="Town.cs" />
   </ItemGroup>
