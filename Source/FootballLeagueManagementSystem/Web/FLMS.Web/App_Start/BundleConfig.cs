@@ -14,7 +14,7 @@
 
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
-            BundleTable.EnableOptimizations = true;
+            BundleTable.EnableOptimizations = false;
         }
 
         private static void RegisterScriptBundles(BundleCollection bundles)
@@ -43,12 +43,15 @@
         private static void RegisterStyleBundles(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                "~/Content/bootstrap.css",
-                "~/Content/site.css"));
+                "~/Content/bootstrap.css"));
 
             bundles.Add(new StyleBundle("~/Content/kendo").Include(
+                "~/Content/kendo/kendo.common.min.css").Include(
                 "~/Content/kendo/kendo.common-bootstrap.min.css").Include(
                 "~/Content/kendo/kendo.highcontrast.min.css"));
+
+            bundles.Add(new StyleBundle("~/Content/custom").Include(
+                "~/Content/site.css"));
         }
     }
 }
