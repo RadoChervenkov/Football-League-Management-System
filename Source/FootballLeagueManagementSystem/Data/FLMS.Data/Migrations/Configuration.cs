@@ -1,14 +1,12 @@
 namespace FLMS.Data.Migrations
 {
-    using FLMS.Data.Models;
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.EntityFramework;
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using FLMS.Data.Models;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<FLMS.Data.ApplicationDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<ApplicationDbContext>
     {
         public Configuration()
         {
@@ -16,7 +14,15 @@ namespace FLMS.Data.Migrations
             this.AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(FLMS.Data.ApplicationDbContext context)
+        protected override void Seed(ApplicationDbContext context)
+        {
+            if (!context.Roles.Any())
+            {
+                this.SeedRolesAndUsers(context);
+            }
+        }
+
+        private void SeedRolesAndUsers(ApplicationDbContext context)
         {
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             roleManager.Create(new IdentityRole("Administrator"));
