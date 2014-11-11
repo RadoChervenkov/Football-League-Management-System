@@ -514,6 +514,10 @@
       <Project>{536c4653-5d69-4253-8069-6469563273ad}</Project>
       <Name>FLMS.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\FLMS.Data.Common\FLMS.Data.Common.csproj">
+      <Project>{954a339f-f7d8-4f77-b4bf-956a1ded080b}</Project>
+      <Name>FLMS.Data.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

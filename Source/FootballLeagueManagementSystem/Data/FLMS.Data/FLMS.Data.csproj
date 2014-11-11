@@ -53,6 +53,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="IFlmsData.cs" />
+    <Compile Include="IFlmsDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -61,11 +63,16 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\FLMS.Data.Common\FLMS.Data.Common.csproj">
+      <Project>{954a339f-f7d8-4f77-b4bf-956a1ded080b}</Project>
+      <Name>FLMS.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FLMS.Data.Models\FLMS.Data.Models.csproj">
       <Project>{ee07b20f-6ba4-4792-b0b1-7f31b113cfbb}</Project>
       <Name>FLMS.Data.Models</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
