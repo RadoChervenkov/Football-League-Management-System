@@ -537,6 +537,10 @@
       <Project>{954a339f-f7d8-4f77-b4bf-956a1ded080b}</Project>
       <Name>FLMS.Data.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\FLMS.Web.Infrastructure\FLMS.Web.Infrastructure.csproj">
+      <Project>{d90e4d2f-bef6-4adb-a302-5961e1e92e1f}</Project>
+      <Name>FLMS.Web.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
