@@ -24,7 +24,7 @@ namespace FLMS.Web.Areas.Administration.ViewModels.Players
         [Display(Name = "Възраст")]
         public int Age { get; set; }
 
-        [DataType("Date")]
+        //[DataType("Date")]
         public DateTime DateOfBirth { get; set; }
     }
 }

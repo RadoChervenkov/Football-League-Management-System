@@ -546,6 +546,10 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Data\FLMS.Data.Common\FLMS.Data.Common.csproj">
+      <Project>{954a339f-f7d8-4f77-b4bf-956a1ded080b}</Project>
+      <Name>FLMS.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Data\FLMS.Data.Models\FLMS.Data.Models.csproj">
       <Project>{ee07b20f-6ba4-4792-b0b1-7f31b113cfbb}</Project>
       <Name>FLMS.Data.Models</Name>
@@ -553,10 +557,6 @@
     <ProjectReference Include="..\..\Data\FLMS.Data\FLMS.Data.csproj">
       <Project>{536c4653-5d69-4253-8069-6469563273ad}</Project>
       <Name>FLMS.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\FLMS.Data.Common\FLMS.Data.Common.csproj">
-      <Project>{954a339f-f7d8-4f77-b4bf-956a1ded080b}</Project>
-      <Name>FLMS.Data.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\FLMS.Web.Infrastructure\FLMS.Web.Infrastructure.csproj">
       <Project>{d90e4d2f-bef6-4adb-a302-5961e1e92e1f}</Project>
