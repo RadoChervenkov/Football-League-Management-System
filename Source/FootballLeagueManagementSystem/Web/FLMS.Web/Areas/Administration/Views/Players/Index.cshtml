@@ -1,0 +1,38 @@
+﻿@using FLMS.Web.Areas.Administration.ViewModels.Players;
+@{
+    ViewBag.Title = "Players";
+    const string ControllerName = "Players";
+}
+
+<h2>@ViewBag.Title</h2>
+@(Html.Kendo()
+    .Grid<PlayersViewModel>()
+    .Name("grid")
+    .Columns(cols =>
+    {
+        cols.Bound(pr => pr.Id);
+        cols.Bound(pr => pr.FirstName);
+        cols.Bound(pr => pr.LastName);
+        cols.Bound(pr => pr.Age);
+        cols.Bound(pr => pr.DateOfBirth);
+        cols.Bound(pr => pr.CreatedOn).Hidden();
+        cols.Bound(pr => pr.ModifiedOn).Hidden();
+        cols.Command(com => com.Edit()).Title("Промяна");
+        cols.Command(com => com.Destroy()).Title("Изтриване");
+    })
+    .ColumnMenu()
+    .Pageable(page => page.Refresh(true))
+    .Sortable()
+    .Groupable()
+    .Filterable()
+    .Editable(edit => edit.Mode(GridEditMode.PopUp))
+    .ToolBar(toolbar => toolbar.Create())
+    .DataSource(data =>
+        data
+            .Ajax()
+            .Model(m => m.Id(adv => adv.Id))
+            .Read(read => read.Action("Read", ControllerName))
+            .Create(create => create.Action("Create", ControllerName))
+            .Update(update => update.Action("Update", ControllerName))
+            .Destroy(destroy => destroy.Action("Destroy", ControllerName))
+            ))

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FLMS.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
@@ -9,11 +10,15 @@ namespace FLMS.Data
 {
     public interface IFlmsDbContext
     {
+        IDbSet<ApplicationUser> Users { get; set; }
+
+        IDbSet<Player> Players { get; set; }
+        
         DbContext DbContext { get; }
 
         int SaveChanges();
 
-        void ClearDatabase();
+        void Dispose();
 
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
 

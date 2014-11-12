@@ -52,7 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="FlmsDbContext.cs" />
+    <Compile Include="FlmsData.cs" />
     <Compile Include="IFlmsData.cs" />
     <Compile Include="IFlmsDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />

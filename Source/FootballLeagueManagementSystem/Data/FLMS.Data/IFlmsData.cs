@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FLMS.Data.Common.Repository;
+using FLMS.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +13,9 @@ namespace FLMS.Data
         IFlmsDbContext Context { get; }
 
         int SaveChanges();
+
+        IDeletableEntityRepository<Player> Players { get; }
+
+        IRepository<ApplicationUser> Users { get; }
     }
 }

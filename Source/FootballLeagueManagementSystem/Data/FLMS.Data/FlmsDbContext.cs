@@ -8,16 +8,18 @@
     using FLMS.Data.Models;
     using FLMS.Data.Common.Models;
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class FlmsDbContext : IdentityDbContext<ApplicationUser>, IFlmsDbContext
     {
-        public ApplicationDbContext() : base("FootballLeagueManagementSystemConnection", throwIfV1Schema: false)
+        public FlmsDbContext() : base("FootballLeagueManagementSystemConnection", throwIfV1Schema: false)
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ApplicationDbContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<FlmsDbContext, Configuration>());
         }
 
-        public static ApplicationDbContext Create()
+        public virtual IDbSet<Player> Players { get; set; }
+
+        public static FlmsDbContext Create()
         {
-            return new ApplicationDbContext();
+            return new FlmsDbContext();
         }
 
         public override int SaveChanges()
@@ -49,6 +51,19 @@
                     entity.ModifiedOn = DateTime.Now;
                 }
             }
+        }
+
+        public DbContext DbContext
+        {
+            get
+            {
+                return this;
+            }
+        }
+
+        public new IDbSet<T> Set<T>() where T : class
+        {
+            return base.Set<T>();
         }
     }
 }
