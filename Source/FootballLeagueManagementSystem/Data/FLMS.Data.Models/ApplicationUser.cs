@@ -1,16 +1,13 @@
-﻿using FLMS.Data.Common.Models;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FLMS.Data.Models
+﻿namespace FLMS.Data.Models
 {
+    using System;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Security.Claims;
+    using System.Threading.Tasks;
+    using FLMS.Data.Common.Models;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    
     public class ApplicationUser : IdentityUser, IAuditInfo, IDeletableEntity
     {
         public ApplicationUser()

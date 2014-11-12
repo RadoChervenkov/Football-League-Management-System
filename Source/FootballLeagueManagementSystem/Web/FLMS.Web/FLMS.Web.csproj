@@ -558,7 +558,7 @@
       <Project>{536c4653-5d69-4253-8069-6469563273ad}</Project>
       <Name>FLMS.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\FLMS.Web.Infrastructure\FLMS.Web.Infrastructure.csproj">
+    <ProjectReference Include="..\FLMS.Web.Infrastructure\FLMS.Web.Infrastructure.csproj">
       <Project>{d90e4d2f-bef6-4adb-a302-5961e1e92e1f}</Project>
       <Name>FLMS.Web.Infrastructure</Name>
     </ProjectReference>

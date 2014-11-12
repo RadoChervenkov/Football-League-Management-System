@@ -1,9 +1,8 @@
 ﻿namespace FLMS.Web.Controllers
 {
     using System.Web.Mvc;
-    using System.Data.Entity;
-    using FLMS.Data.Models;
     using FLMS.Data;
+    using FLMS.Data.Models;
 
     public abstract class BaseController : Controller
     {

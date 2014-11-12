@@ -1,15 +1,12 @@
-﻿using FLMS.Data.Models;
-using FLMS.Web.Areas.Administration.ViewModels.Base;
-using FLMS.Web.Infrastructure.Mapping;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace FLMS.Web.Areas.Administration.ViewModels.Players
+﻿namespace FLMS.Web.Areas.Administration.ViewModels.Players
 {
+    using System;
+    using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
+    using FLMS.Data.Models;
+    using FLMS.Web.Areas.Administration.ViewModels.Base;
+    using FLMS.Web.Infrastructure.Mapping;
+
     public class PlayersViewModel : AdministrationViewModel, IMapFrom<Player>
     {
         [HiddenInput(DisplayValue = false)]
@@ -24,7 +21,7 @@ namespace FLMS.Web.Areas.Administration.ViewModels.Players
         [Display(Name = "Възраст")]
         public int Age { get; set; }
 
-        //[DataType("Date")]
+        [DataType("Date")]
         public DateTime DateOfBirth { get; set; }
     }
 }

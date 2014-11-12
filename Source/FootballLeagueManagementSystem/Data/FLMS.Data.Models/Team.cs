@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-
-namespace FLMS.Data.Models
+﻿namespace FLMS.Data.Models
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    
     public class Team
     {
         private ICollection<Player> players;

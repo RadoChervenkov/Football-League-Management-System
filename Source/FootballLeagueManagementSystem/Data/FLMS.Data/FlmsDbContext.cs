@@ -3,10 +3,10 @@
     using System;
     using System.Data.Entity;
     using System.Linq;
-    using Microsoft.AspNet.Identity.EntityFramework;
+    using FLMS.Data.Common.Models;
     using FLMS.Data.Migrations;
     using FLMS.Data.Models;
-    using FLMS.Data.Common.Models;
+    using Microsoft.AspNet.Identity.EntityFramework;
 
     public class FlmsDbContext : IdentityDbContext<ApplicationUser>, IFlmsDbContext
     {
@@ -17,6 +17,14 @@
 
         public virtual IDbSet<Player> Players { get; set; }
 
+        public DbContext DbContext
+        {
+            get
+            {
+                return this;
+            }
+        }
+        
         public static FlmsDbContext Create()
         {
             return new FlmsDbContext();
@@ -26,6 +34,11 @@
         {
             this.ApplyAuditInfoRules();
             return base.SaveChanges();
+        }
+        
+        public new IDbSet<T> Set<T>() where T : class
+        {
+            return base.Set<T>();
         }
 
         private void ApplyAuditInfoRules()
@@ -51,19 +64,6 @@
                     entity.ModifiedOn = DateTime.Now;
                 }
             }
-        }
-
-        public DbContext DbContext
-        {
-            get
-            {
-                return this;
-            }
-        }
-
-        public new IDbSet<T> Set<T>() where T : class
-        {
-            return base.Set<T>();
         }
     }
 }

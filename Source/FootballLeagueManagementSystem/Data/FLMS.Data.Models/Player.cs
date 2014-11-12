@@ -1,8 +1,8 @@
 ﻿namespace FLMS.Data.Models
 {
-    using FLMS.Data.Common.Models;
     using System;
     using System.ComponentModel.DataAnnotations;
+    using FLMS.Data.Common.Models;
 
     public class Player : AuditInfo, IDeletableEntity
     {
@@ -27,13 +27,13 @@
 
         public float Height { get; set; }
 
-        //public PlayerPosition Position { get; set; }
-
-        //public string PictureLink { get; set; }
-
-        //public int TeamId { get; set; }
-
-        //public virtual Team Team { get; set; }
+        // public PlayerPosition Position { get; set; }
+           
+        // public string PictureLink { get; set; }
+           
+        // public int TeamId { get; set; }
+           
+        // public virtual Team Team { get; set; }
 
         public bool IsDeleted { get; set; }
 

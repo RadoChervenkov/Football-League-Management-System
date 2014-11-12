@@ -1,24 +1,20 @@
 ﻿namespace FLMS.Web.Areas.Administration.Controllers.Base
 {
     using System.Collections;
-    using System.Web.Mvc;
-    using FLMS.Data;
-    using Kendo.Mvc.UI;
-    using Kendo.Mvc.Extensions;
     using System.Data.Entity;
+    using System.Web.Mvc;
     using AutoMapper;
-    using FLMS.Web.Areas.Administration.ViewModels.Base;
+    using FLMS.Data;
     using FLMS.Data.Common.Models;
+    using FLMS.Web.Areas.Administration.ViewModels.Base;
+    using Kendo.Mvc.Extensions;
+    using Kendo.Mvc.UI;
 
     public abstract class KendoGridAdministrationController : AdminController
     {
         public KendoGridAdministrationController(IFlmsData data) : base(data)
         {
         }
-
-        protected abstract IEnumerable GetData();
-
-        protected abstract T GetById<T>(object id) where T : class;
 
         [HttpPost]
         public ActionResult Read([DataSourceRequest]
@@ -39,6 +35,7 @@
                 this.ChangeEntityStateAndSave(dbModel, EntityState.Added);
                 return dbModel;
             }
+            
             return null;
         }
 
@@ -56,10 +53,13 @@
             }
         }
 
-        protected JsonResult GridOperation<T>(T model, [DataSourceRequest]
-                                              DataSourceRequest request)
+        protected abstract IEnumerable GetData();
+
+        protected abstract T GetById<T>(object id) where T : class;
+
+        protected JsonResult GridOperation<T>(T model, [DataSourceRequest]DataSourceRequest request)
         {
-            return Json(new[] { model }.ToDataSourceResult(request, ModelState));
+            return Json(new[] { model }.ToDataSourceResult(request, this.ModelState));
         }
 
         private void ChangeEntityStateAndSave(object dbModel, EntityState state)

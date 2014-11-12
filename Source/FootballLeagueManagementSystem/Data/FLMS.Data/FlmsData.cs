@@ -1,14 +1,11 @@
-﻿using FLMS.Data.Common.Models;
-using FLMS.Data.Common.Repository;
-using FLMS.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FLMS.Data
+﻿namespace FLMS.Data
 {
+    using System;
+    using System.Collections.Generic;
+    using FLMS.Data.Common.Models;
+    using FLMS.Data.Common.Repository;
+    using FLMS.Data.Models;
+
     public class FlmsData : IFlmsData
     {
         private readonly IFlmsDbContext context;
@@ -27,14 +24,6 @@ namespace FLMS.Data
             }
         }
 
-        //public IRepository<T> GetGenericRepository<T>() where T : class
-        //{
-        //    if (typeof(T).IsAssignableFrom(typeof(DeletableEntity)))
-        //    {
-        //        return this.GetDeletableEntityRepository<T>();
-        //    }
-        //    return this.GetRepository<T>();
-        //}
         public IRepository<ApplicationUser> Users
         {
             get
@@ -79,6 +68,7 @@ namespace FLMS.Data
                 var type = typeof(GenericRepository<T>);
                 this.repositories.Add(typeof(T), Activator.CreateInstance(type, this.context));
             }
+
             return (IRepository<T>)this.repositories[typeof(T)];
         }
 
@@ -89,6 +79,7 @@ namespace FLMS.Data
                 var type = typeof(DeletableEntityRepository<T>);
                 this.repositories.Add(typeof(T), Activator.CreateInstance(type, this.context));
             }
+            
             return (IDeletableEntityRepository<T>)this.repositories[typeof(T)];
         }
     }
