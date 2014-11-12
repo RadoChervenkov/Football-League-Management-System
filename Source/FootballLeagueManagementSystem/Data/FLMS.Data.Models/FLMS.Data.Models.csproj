@@ -68,7 +68,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\FLMS.Data.Common\FLMS.Data.Common.csproj">
+    <ProjectReference Include="..\FLMS.Data.Common\FLMS.Data.Common.csproj">
       <Project>{954a339f-f7d8-4f77-b4bf-956a1ded080b}</Project>
       <Name>FLMS.Data.Common</Name>
     </ProjectReference>
