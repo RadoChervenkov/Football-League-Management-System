@@ -20,10 +20,10 @@
         public ActionResult Read([DataSourceRequest]
                                  DataSourceRequest request)
         {
-            var ads =
+            var data =
                 this.GetData()
                     .ToDataSourceResult(request);
-            return this.Json(ads);
+            return this.Json(data);
         }
 
         [NonAction]

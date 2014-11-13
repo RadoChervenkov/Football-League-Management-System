@@ -48,7 +48,7 @@
             bundles.Add(new StyleBundle("~/Content/kendo").Include(
                 "~/Content/kendo/kendo.common.min.css").Include(
                 "~/Content/kendo/kendo.common-bootstrap.min.css").Include(
-                "~/Content/kendo/kendo.highcontrast.min.css"));
+                "~/Content/kendo/kendo.metro.min.css"));
 
             bundles.Add(new StyleBundle("~/Content/custom").Include(
                 "~/Content/site.css"));
