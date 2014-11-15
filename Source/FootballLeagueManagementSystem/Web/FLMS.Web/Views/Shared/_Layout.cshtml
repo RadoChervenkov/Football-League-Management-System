@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/kendo")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/unobtrusiveajax")
     @RenderSection("styles", required: false)
     @Styles.Render("~/Content/custom")
 </head>
@@ -27,6 +29,7 @@
                     <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("All Players", "Index", "Players", new { area = "Administration" }, null)</li>
+                    <li>@Html.ActionLink("Create a team", "Create", "Team", new { area = "" }, null)</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -41,6 +44,8 @@
     </div>
 
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/kendo")
+    @Scripts.Render("~/bundles/custom")
     @RenderSection("scripts", required: false)
 </body>
 </html>

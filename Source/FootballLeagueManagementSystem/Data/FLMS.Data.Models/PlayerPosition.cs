@@ -2,9 +2,9 @@
 {
     public enum PlayerPosition
     {
-        Goalkeeper,
-        Defender,
-        Midfielder,
-        Attacker
+        Goalkeeper = 0,
+        Defender = 1,
+        Midfielder = 2,
+        Attacker = 3
     }
 }

@@ -21,11 +21,19 @@
 
         public virtual ApplicationUser Manager { get; set; }
 
-        public int CaptainId { get; set; }
+        public bool IsActive { get; set; }
 
-        public virtual ApplicationUser Captain { get; set; }
-
-        public ICollection<Player> Players { get; set; }
+        public ICollection<Player> Players
+        {
+            get
+            {
+                return this.players;
+            }
+            set
+            {
+                this.players = value;
+            }
+        }
 
         public int LeagueId { get; set; }
 

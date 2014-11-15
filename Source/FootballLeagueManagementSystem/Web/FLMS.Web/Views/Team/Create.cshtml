@@ -1,0 +1,40 @@
+﻿@model FLMS.Web.ViewModels.Team.CreateTeamViewModel
+@{
+    ViewBag.Title = "Create team";
+}
+
+<h2>Create new team</h2>
+
+@using (Ajax.BeginForm("LoadPlayersForm", "Team", new AjaxOptions
+{
+    UpdateTargetId = "players-input",
+    HttpMethod = "Get",
+    InsertionMode = InsertionMode.ReplaceWith,
+    OnSuccess = "hideById('loadPlayersForm')"
+}, new
+{
+    id = "loadPlayersForm"
+}))
+{
+    <p>Enter players count between 5 and 15</p>
+    <input type="number" min="5" max="15" value="5" name="count" class="form-control" />
+    <br />
+    <input type="submit" value="Add" class="btn btn-default" />
+}
+
+@using (Html.BeginForm("Create", "Team", null, FormMethod.Post, new { @class = "form-inline", id = "players-form" }))
+{ 
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary()
+
+    @Html.LabelFor(m => m.Name, new { @class = "col-md-2" })
+    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Name)
+
+    <div class="row" id="players-input"></div>
+    <br />
+    <input type="submit" value="Create" class="btn btn-primary"/>
+}
+
+@Scripts.Render("~/bundles/jqueryval")

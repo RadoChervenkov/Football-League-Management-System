@@ -9,31 +9,27 @@
         [Key]
         public int Id { get; set; }
 
+        [Required]
         public string FirstName { get; set; }
 
+        [Required]
         public string LastName { get; set; }
 
         public int Age { get; set; }
 
         public DateTime DateOfBirth { get; set; }
 
-        public string Town { get; set; }
-
-        public string PhoneNumber { get; set; }
-
-        public string Email { get; set; }
-
         public float Weight { get; set; }
 
         public float Height { get; set; }
 
-        // public PlayerPosition Position { get; set; }
+        public PlayerPosition Position { get; set; }
            
         // public string PictureLink { get; set; }
            
-        // public int TeamId { get; set; }
+         public int TeamId { get; set; }
            
-        // public virtual Team Team { get; set; }
+         public virtual Team Team { get; set; }
 
         public bool IsDeleted { get; set; }
 

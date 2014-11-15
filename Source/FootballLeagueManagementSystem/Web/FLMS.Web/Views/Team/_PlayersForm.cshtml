@@ -1,0 +1,23 @@
+﻿@model FLMS.Web.ViewModels.Player.PlayerInputModel
+
+<br /><br />
+<p>Enter the team players information</p>
+
+@for (int i = 0; i < ViewBag.PlayersCount; i++)
+{ 
+    <div class="row">
+        @Html.TextBoxFor(m => m.FirstName, new { Name = "Players[" + @i + "].FirstName", @class = "form-control", placeholder = "First Name" })
+        @Html.ValidationMessageFor(m => m.FirstName)
+        @Html.TextBoxFor(m => m.LastName, new { Name = "Players[" + @i + "].LastName", @class = "form-control", placeholder = "Last Name" })
+        @Html.ValidationMessageFor(m => m.FirstName)
+        @Html.Kendo().DatePickerFor(m => m.DateOfBirth).Name("dateOfBirth" + @i).Value("Birth Date")
+        @Html.ValidationMessageFor(m => m.FirstName)
+        @Html.EnumDropDownListFor(m => m.Position, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.FirstName)
+        @Html.TextBoxFor(m => m.Weight, new { Name = "Players[" + @i + "].Weight", @class = "form-control", placeholder = "Weight" })
+        @Html.ValidationMessageFor(m => m.FirstName)
+        @Html.TextBoxFor(m => m.Height, new { Name = "Players[" + @i + "].Height", @class = "form-control", placeholder = "Height" })
+        @Html.ValidationMessageFor(m => m.FirstName)
+    </div>
+    <br />
+}
