@@ -39,6 +39,22 @@
                 return this.GetDeletableEntityRepository<Player>();
             }
         }
+
+        public IDeletableEntityRepository<Season> Seasons
+        {
+            get
+            {
+                return this.GetDeletableEntityRepository<Season>();
+            }
+        }
+
+        public IDeletableEntityRepository<League> Leagues
+        {
+            get
+            {
+                return this.GetDeletableEntityRepository<League>();
+            }
+        }
         
         public int SaveChanges()
         {

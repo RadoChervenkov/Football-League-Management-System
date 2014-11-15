@@ -8,6 +8,10 @@
         IDeletableEntityRepository<Player> Players { get; }
 
         IRepository<ApplicationUser> Users { get; }
+
+        IDeletableEntityRepository<League> Leagues { get; }
+
+        IDeletableEntityRepository<Season> Seasons { get; }
         
         IFlmsDbContext Context { get; }
 

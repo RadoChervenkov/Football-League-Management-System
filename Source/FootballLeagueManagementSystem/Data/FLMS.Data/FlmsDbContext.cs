@@ -17,6 +17,10 @@
 
         public virtual IDbSet<Player> Players { get; set; }
 
+        public virtual IDbSet<League> Leagues { get; set; }
+
+        public virtual IDbSet<Season> Seasons { get; set; }
+
         public DbContext DbContext
         {
             get

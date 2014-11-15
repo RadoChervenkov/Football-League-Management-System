@@ -9,6 +9,10 @@
         IDbSet<ApplicationUser> Users { get; set; }
 
         IDbSet<Player> Players { get; set; }
+
+        IDbSet<Season> Seasons { get; set; }
+
+        IDbSet<League> Leagues { get; set; }
         
         DbContext DbContext { get; }
 
