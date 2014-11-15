@@ -1,9 +1,10 @@
 ﻿namespace FLMS.Data.Models
 {
+    using FLMS.Data.Common.Models;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     
-    public class Team
+    public class Team : AuditInfo, IDeletableEntity
     {
         private ICollection<Player> players;
 
@@ -17,13 +18,9 @@
 
         public string Name { get; set; }
 
-        public int ManagerId { get; set; }
-
-        public virtual ApplicationUser Manager { get; set; }
-
         public bool IsActive { get; set; }
 
-        public ICollection<Player> Players
+        public virtual ICollection<Player> Players
         {
             get
             {
@@ -38,5 +35,9 @@
         public int LeagueId { get; set; }
 
         public virtual League League { get; set; }
+
+        public bool IsDeleted { get; set; }
+
+        public System.DateTime? DeletedOn { get; set; }
     }
 }

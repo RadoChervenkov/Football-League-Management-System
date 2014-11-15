@@ -13,6 +13,8 @@
         IDbSet<Season> Seasons { get; set; }
 
         IDbSet<League> Leagues { get; set; }
+
+        IDbSet<Team> Teams { get; set; }
         
         DbContext DbContext { get; }
 

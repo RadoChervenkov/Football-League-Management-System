@@ -15,8 +15,6 @@
         [Required]
         public string LastName { get; set; }
 
-        public int Age { get; set; }
-
         public DateTime DateOfBirth { get; set; }
 
         public float Weight { get; set; }

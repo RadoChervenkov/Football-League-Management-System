@@ -55,6 +55,14 @@
                 return this.GetDeletableEntityRepository<League>();
             }
         }
+
+        public IDeletableEntityRepository<Team> Teams
+        {
+            get
+            {
+                return this.GetDeletableEntityRepository<Team>();
+            }
+        }
         
         public int SaveChanges()
         {

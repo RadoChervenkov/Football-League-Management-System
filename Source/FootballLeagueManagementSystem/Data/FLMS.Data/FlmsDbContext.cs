@@ -21,6 +21,8 @@
 
         public virtual IDbSet<Season> Seasons { get; set; }
 
+        public virtual IDbSet<Team> Teams { get; set; }
+
         public DbContext DbContext
         {
             get

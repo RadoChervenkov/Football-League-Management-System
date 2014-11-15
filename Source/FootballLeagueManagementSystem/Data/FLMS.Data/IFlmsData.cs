@@ -12,6 +12,8 @@
         IDeletableEntityRepository<League> Leagues { get; }
 
         IDeletableEntityRepository<Season> Seasons { get; }
+
+        IDeletableEntityRepository<Team> Teams { get; }
         
         IFlmsDbContext Context { get; }
 
