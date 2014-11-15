@@ -11,7 +11,9 @@
         [Required]
         public string Name { get; set; }
 
-        public Season Season { get; set; }
+        [Required]
+        [Display(Name="Season")]
+        public string SeasonId { get; set; }
 
         public IEnumerable<SelectListItem> SelectableSeasons { get; set; }
     }

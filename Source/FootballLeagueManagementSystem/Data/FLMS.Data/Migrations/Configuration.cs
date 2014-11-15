@@ -59,7 +59,6 @@ namespace FLMS.Data.Migrations
             var seedTeam = new Team()
             {
                 Name = "TelerikAcademy",
-                IsActive = true,
                 League = league
             };
 
@@ -74,7 +73,6 @@ namespace FLMS.Data.Migrations
             var league = new League()
             {
                 Name = "Elites",
-                MaxTeamsCount = 10,
                 Season = season
             };
 

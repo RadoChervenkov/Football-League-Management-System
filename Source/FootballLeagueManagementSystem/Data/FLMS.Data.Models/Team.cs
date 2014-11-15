@@ -1,6 +1,7 @@
 ﻿namespace FLMS.Data.Models
 {
     using FLMS.Data.Common.Models;
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     
@@ -17,8 +18,6 @@
         public int Id { get; set; }
 
         public string Name { get; set; }
-
-        public bool IsActive { get; set; }
 
         public virtual ICollection<Player> Players
         {
@@ -38,6 +37,6 @@
 
         public bool IsDeleted { get; set; }
 
-        public System.DateTime? DeletedOn { get; set; }
+        public DateTime? DeletedOn { get; set; }
     }
 }
