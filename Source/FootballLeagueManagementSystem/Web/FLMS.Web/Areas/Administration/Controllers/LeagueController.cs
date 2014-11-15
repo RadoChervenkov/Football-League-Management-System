@@ -1,6 +1,8 @@
 ﻿namespace FLMS.Web.Areas.Administration.Controllers
 {
+    using AutoMapper;
     using FLMS.Data;
+    using FLMS.Data.Models;
     using FLMS.Web.Areas.Administration.ViewModels.League;
     using FLMS.Web.Controllers;
     using System;
@@ -21,7 +23,7 @@
         }
 
         [HttpGet]
-        public ActionResult Create(LeagueInputModel inputModel)
+        public ActionResult Create()
         {
             var seasons = this.Data.Seasons.All().ToList();
 
@@ -35,9 +37,20 @@
             return View(model);
         }
 
-        public ActionResult Create()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(LeagueInputModel inputModel)
         {
-            return RedirectToAction("Index");
+            if (inputModel != null && ModelState.IsValid)
+            {
+                var dbModel = Mapper.Map<League>(inputModel);
+                this.Data.Leagues.Add(dbModel);
+                this.Data.SaveChanges();
+                
+                return RedirectToAction("Index");
+            }
+
+            return View(inputModel);
         }
     }
 }
