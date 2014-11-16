@@ -1,17 +1,21 @@
 ﻿namespace FLMS.Data.Models
 {
-    using FLMS.Data.Common.Models;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+
+    using FLMS.Data.Common.Models;
 
     public class League : AuditInfo, IDeletableEntity
     {
         [Key]
         public int Id { get; set; }
 
+        [Required]
+        [StringLength(100)]
         public string Name { get; set; }
 
+        [Required]
         public int SeasonId { get; set; }
 
         public virtual Season Season { get; set; }
