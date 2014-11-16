@@ -25,12 +25,12 @@
 
         public ActionResult Index()
         {
-            ViewData["teams"] = this.Data.Teams.All()
-                                    .Select(t => new TeamViewModel
-                                           {
-                                               Id = t.Id,
-                                               Name = t.Name
-                                           });
+            ViewData["teams"] = this.Data.Teams.All().Project().To<TeamViewModel>();
+                                    //.Select(t => new TeamViewModel
+                                    //       {
+                                    //           Id = t.Id,
+                                    //           Name = t.Name
+                                    //       });
 
             return View();
         }

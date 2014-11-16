@@ -36,10 +36,10 @@
             .Model(m =>
                 {
                     m.Id(p => p.Id);
-                    m.Field(p => p.TeamName).Editable(false);
                 })
             .Read(read => read.Action("Read", ControllerName))
             .Create(create => create.Action("Create", ControllerName))
             .Update(update => update.Action("Update", ControllerName))
             .Destroy(destroy => destroy.Action("Destroy", ControllerName))
+                .Events(ev => ev.RequestEnd("onRequestEndRefresh"))
             ))

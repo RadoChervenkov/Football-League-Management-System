@@ -7,6 +7,7 @@
     using FLMS.Web.Areas.Administration.ViewModels.Base;
     using FLMS.Web.Infrastructure.Mapping;
     using AutoMapper;
+    using FLMS.Web.Areas.Administration.ViewModels.Team;
 
     public class PlayersViewModel : AdministrationViewModel, IMapFrom<Player>, IHaveCustomMappings
     {
