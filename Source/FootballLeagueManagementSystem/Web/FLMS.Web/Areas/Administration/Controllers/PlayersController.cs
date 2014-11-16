@@ -9,11 +9,11 @@
     using FLMS.Data;
     using FLMS.Web.Areas.Administration.Controllers.Base;
     using FLMS.Web.Areas.Administration.ViewModels.Players;
-    using FLMS.Web.Areas.Administration.ViewModels.Team;
+    using FLMS.Web.Areas.Administration.ViewModels.Teams;
     using Kendo.Mvc.UI;
     
     using Model = FLMS.Data.Models.Player;
-    using ViewModel = FLMS.Web.Areas.Administration.ViewModels.Players.PlayersViewModel;
+    using ViewModel = FLMS.Web.Areas.Administration.ViewModels.Players.PlayerViewModel;
 
     public class PlayersController : KendoGridAdministrationController
     {
@@ -65,7 +65,7 @@
 
         protected override IEnumerable GetData()
         {
-            return this.Data.Players.All().Project().To<PlayersViewModel>();
+            return this.Data.Players.All().Project().To<PlayerViewModel>();
         }
 
         protected override T GetById<T>(object id)

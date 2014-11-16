@@ -27,7 +27,7 @@
 
         public ActionResult Index()
         {
-            ViewData["seasons"] = this.Data.Seasons.All().Project().To<SeasonsViewModel>();
+            ViewData["seasons"] = this.Data.Seasons.All().Project().To<SeasonViewModel>();
 
             return View();
         }

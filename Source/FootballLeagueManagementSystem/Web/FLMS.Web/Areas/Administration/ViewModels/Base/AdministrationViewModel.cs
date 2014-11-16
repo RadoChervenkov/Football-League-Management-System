@@ -6,11 +6,11 @@
 
     public abstract class AdministrationViewModel
     {
-        [Display(Name = "Добавено на")]
+        [Display(Name = "Created on")]
         [HiddenInput(DisplayValue = false)]
         public DateTime CreatedOn { get; set; }
 
-        [Display(Name = "Променено на")]
+        [Display(Name = "Modified on")]
         [HiddenInput(DisplayValue = false)]
         public DateTime? ModifiedOn { get; set; }
     }

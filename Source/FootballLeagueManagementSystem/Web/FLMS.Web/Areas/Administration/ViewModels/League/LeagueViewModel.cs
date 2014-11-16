@@ -17,10 +17,12 @@
         public string Name { get; set; }
 
         [Required]
+        [Display(Name="Season")]
         [UIHint("SeasonDropdown")]
         public int SeasonId { get; set; }
 
         [Display(Name = "Season")]
+        [HiddenInput(DisplayValue = false)]
         public string SeasonName { get; set; }
 
         public void CreateMappings(IConfiguration configuration)

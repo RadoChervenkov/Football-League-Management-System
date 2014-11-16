@@ -17,7 +17,14 @@
         [Key]
         public int Id { get; set; }
 
+        [Required]
+        [StringLength(100)]
         public string Name { get; set; }
+
+        [Required]
+        public int LeagueId { get; set; }
+
+        public virtual League League { get; set; }
 
         public virtual ICollection<Player> Players
         {
@@ -30,10 +37,6 @@
                 this.players = value;
             }
         }
-
-        public int LeagueId { get; set; }
-
-        public virtual League League { get; set; }
 
         public bool IsDeleted { get; set; }
 

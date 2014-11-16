@@ -12,7 +12,7 @@
     using Kendo.Mvc.UI;
     
     using Model = FLMS.Data.Models.Season;
-    using ViewModel = FLMS.Web.Areas.Administration.ViewModels.Seasons.SeasonsViewModel;
+    using ViewModel = FLMS.Web.Areas.Administration.ViewModels.Seasons.SeasonViewModel;
 
     public class SeasonsController : KendoGridAdministrationController
     {
@@ -62,7 +62,7 @@
 
         protected override IEnumerable GetData()
         {
-            return this.Data.Seasons.All().Project().To<SeasonsViewModel>();
+            return this.Data.Seasons.All().Project().To<SeasonViewModel>();
         }
 
         protected override T GetById<T>(object id)
