@@ -34,14 +34,14 @@ namespace FLMS.Data.Migrations
 
             var players = new List<Player>()
             {
-                new Player { FirstName = "Gosho", LastName = "Peshov", DateOfBirth = new DateTime(1990, 1, 1), Position = PlayerPosition.Goalkeeper, Height = 1.80f, Weight = 80f, Team = team },
-                new Player { FirstName = "Ivan", LastName = "Stoyanov", DateOfBirth = new DateTime(1990, 2, 2), Position = PlayerPosition.Goalkeeper, Height = 1.81f, Weight = 81f, Team = team },
-                new Player { FirstName = "Dragan", LastName = "Ivanov", DateOfBirth = new DateTime(1990, 3, 3), Position = PlayerPosition.Defender, Height = 1.82f, Weight = 82f, Team = team },
-                new Player { FirstName = "Stoyan", LastName = "Geshev", DateOfBirth = new DateTime(1990, 4, 4), Position = PlayerPosition.Defender, Height = 1.83f, Weight = 83f, Team = team },
-                new Player { FirstName = "Pesho", LastName = "Zashev", DateOfBirth = new DateTime(1990, 5, 5), Position = PlayerPosition.Defender, Height = 1.84f, Weight = 84f, Team = team },
-                new Player { FirstName = "Tosho", LastName = "Iliev", DateOfBirth = new DateTime(1990, 6, 6), Position = PlayerPosition.Attacker, Height = 1.85f, Weight = 85f, Team = team },
-                new Player { FirstName = "Stamat", LastName = "Petkanov", DateOfBirth = new DateTime(1990, 7, 7), Position = PlayerPosition.Attacker, Height = 1.86f, Weight = 86f, Team = team },
-                new Player { FirstName = "Iliya", LastName = "Toshev", DateOfBirth = new DateTime(1990, 8, 8), Position = PlayerPosition.Attacker, Height = 1.87f, Weight = 87f, Team = team },
+                new Player { FirstName = "Gosho", LastName = "Peshov", DateOfBirth = new DateTime(1990, 1, 1), Position = PlayerPosition.Goalkeeper, Height = 180, Weight = 80, Team = team },
+                new Player { FirstName = "Ivan", LastName = "Stoyanov", DateOfBirth = new DateTime(1990, 2, 2), Position = PlayerPosition.Goalkeeper, Height = 181, Weight = 81, Team = team },
+                new Player { FirstName = "Dragan", LastName = "Ivanov", DateOfBirth = new DateTime(1990, 3, 3), Position = PlayerPosition.Defender, Height = 182, Weight = 82, Team = team },
+                new Player { FirstName = "Stoyan", LastName = "Geshev", DateOfBirth = new DateTime(1990, 4, 4), Position = PlayerPosition.Defender, Height = 183, Weight = 83, Team = team },
+                new Player { FirstName = "Pesho", LastName = "Zashev", DateOfBirth = new DateTime(1990, 5, 5), Position = PlayerPosition.Defender, Height = 184, Weight = 84, Team = team },
+                new Player { FirstName = "Tosho", LastName = "Iliev", DateOfBirth = new DateTime(1990, 6, 6), Position = PlayerPosition.Attacker, Height = 185, Weight = 85, Team = team },
+                new Player { FirstName = "Stamat", LastName = "Petkanov", DateOfBirth = new DateTime(1990, 7, 7), Position = PlayerPosition.Attacker, Height = 186, Weight = 86, Team = team },
+                new Player { FirstName = "Iliya", LastName = "Toshev", DateOfBirth = new DateTime(1990, 8, 8), Position = PlayerPosition.Attacker, Height = 187, Weight = 87, Team = team },
             };
 
             foreach (var player in players)
