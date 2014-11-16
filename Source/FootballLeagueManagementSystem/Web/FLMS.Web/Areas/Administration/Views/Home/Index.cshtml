@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Admin Panel";
+}
+
+<h2>@ViewBag.Title</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">Admninistration areas</div>
+    <div class="panel-body">
+        @Html.ActionLink("Manage Seasons", "Index", "Seasons", new { }, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Manage Leagues", "Index", "Leagues", new { }, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Manage Teams", "Index", "Teams", new { }, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Manage Players", "Index", "Players", new { }, new { @class = "btn btn-primary" })
+    </div>
+</div>
+

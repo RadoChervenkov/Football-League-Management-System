@@ -1,0 +1,41 @@
+﻿@using FLMS.Web.Areas.Administration.ViewModels.Teams;
+@{
+    const string ControllerName = "Teams";
+    ViewBag.Title = ControllerName;
+}
+
+<h2>@ViewBag.Title</h2>
+@(Html.Kendo()
+    .Grid<TeamViewModel>()
+    .Name("grid")
+    .Columns(cols =>
+    {
+        cols.Bound(pr => pr.Id);
+        cols.Bound(pr => pr.Name);
+        cols.Bound(pr => pr.LeagueId).Visible(false);
+        cols.Bound(pr => pr.LeagueName);
+        cols.Bound(pr => pr.CreatedOn).Hidden().ClientTemplate("#=kendo.toString(CreatedOn, 'dd/MM/yyyy HH:mm:ss')#");
+        cols.Bound(pr => pr.ModifiedOn).Hidden().ClientTemplate("#=kendo.toString(ModifiedOn, 'dd/MM/yyyy HH:mm:ss')#");
+        cols.Command(com => com.Edit()).Title("Edit");
+        cols.Command(com => com.Destroy()).Title("Delete");
+    })
+    .ColumnMenu()
+    .Pageable(page => page.Refresh(true))
+    .Sortable()
+    .Groupable()
+    .Filterable()
+    .Editable(edit => edit.Mode(GridEditMode.PopUp))
+    .ToolBar(toolbar => toolbar.Create())
+    .DataSource(data =>
+        data
+            .Ajax()
+            .Model(m =>
+                {
+                    m.Id(p => p.Id);
+                })
+            .Read(read => read.Action("Read", ControllerName))
+            .Create(create => create.Action("Create", ControllerName))
+            .Update(update => update.Action("Update", ControllerName))
+            .Destroy(destroy => destroy.Action("Destroy", ControllerName))
+                .Events(ev => ev.RequestEnd("onRequestEndRefresh"))
+            ))
