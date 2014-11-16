@@ -1,22 +1,19 @@
-﻿using FLMS.Web.Areas.Administration.Controllers.Base;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Kendo.Mvc.UI;
-
-using Model = FLMS.Data.Models.Season;
-using ViewModel = FLMS.Web.Areas.Administration.ViewModels.Seasons.SeasonsViewModel;
-using FLMS.Web.Areas.Administration.ViewModels.Seasons;
-using FLMS.Data;
-using AutoMapper.QueryableExtensions;
-using System.Threading;
-using System.Globalization;
-
-namespace FLMS.Web.Areas.Administration.Controllers
+﻿namespace FLMS.Web.Areas.Administration.Controllers
 {
+    using System.Collections;
+    using System.Globalization;
+    using System.Threading;
+    using System.Web.Mvc;
+
+    using AutoMapper.QueryableExtensions;
+    using FLMS.Data;
+    using FLMS.Web.Areas.Administration.Controllers.Base;
+    using FLMS.Web.Areas.Administration.ViewModels.Seasons;
+    using Kendo.Mvc.UI;
+    
+    using Model = FLMS.Data.Models.Season;
+    using ViewModel = FLMS.Web.Areas.Administration.ViewModels.Seasons.SeasonsViewModel;
+
     public class SeasonsController : KendoGridAdministrationController
     {
         public SeasonsController(IFlmsData data)
