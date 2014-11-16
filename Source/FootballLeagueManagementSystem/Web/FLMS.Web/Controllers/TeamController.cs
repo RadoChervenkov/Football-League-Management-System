@@ -3,6 +3,8 @@
     using System.Web.Mvc;
     using FLMS.Data;
     using FLMS.Web.ViewModels.Team;
+    using AutoMapper;
+    using FLMS.Data.Models;
 
     [Authorize]
     public class TeamController : BaseController
@@ -23,9 +25,22 @@
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(CreateTeamViewModel team)
         {
-            return View();
+            if (team != null && ModelState.IsValid)
+            {
+                var dbTeam = Mapper.Map<Team>(team);
+
+                this.Data.Teams.Add(dbTeam);
+                this.Data.SaveChanges();
+
+                var id = dbTeam.Id;
+
+                return RedirectToAction("Details", new { id = id });
+            }
+
+            return View(team);
         }
 
         public ActionResult LoadPlayersForm(int count)

@@ -86,7 +86,7 @@ namespace FLMS.Data.Migrations
             roleManager.Create(new IdentityRole("Administrator"));
 
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-            var user = new ApplicationUser { UserName = "admin" };
+            var user = new ApplicationUser { UserName = "admin", Email = "admin@admin.admin" };
             userManager.Create(user, "admin321");
             userManager.AddToRole(user.Id, "Administrator");
         }

@@ -21,7 +21,7 @@
         [Required]
         [Display(Name = "League")]
         [UIHint("LeagueDropdown")]
-        public int LeagueId { get; set; }
+        public int? LeagueId { get; set; }
 
         [Display(Name = "League")]
         [HiddenInput(DisplayValue = false)]

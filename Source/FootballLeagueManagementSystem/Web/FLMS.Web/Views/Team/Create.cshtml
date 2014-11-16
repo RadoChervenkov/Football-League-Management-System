@@ -13,7 +13,8 @@
     OnSuccess = "hideById('loadPlayersForm')"
 }, new
 {
-    id = "loadPlayersForm"
+    id = "loadPlayersForm",
+    @class = "form-horizontal"
 }))
 {
     <p>Enter players count between 5 and 15</p>
@@ -21,20 +22,25 @@
     <br />
     <input type="submit" value="Add" class="btn btn-default" />
 }
+<br />
+<div class="well">
+    @using (Html.BeginForm("Create", "Team", null, FormMethod.Post, new { @class = "form-inline", id = "players-form" }))
+    {
+            <fieldset>
+                <legend>Team info</legend>
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary()
+                @Html.LabelFor(m => m.Name, new { @class = "col-md-2" })
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
 
-@using (Html.BeginForm("Create", "Team", null, FormMethod.Post, new { @class = "form-inline", id = "players-form" }))
-{ 
-    @Html.AntiForgeryToken()
+                <div class="row" id="players-input"></div>
+                <br />
+                <input type="submit" value="Create" class="btn btn-success" />
+            </fieldset>
+    }
 
-    @Html.ValidationSummary()
+</div>
 
-    @Html.LabelFor(m => m.Name, new { @class = "col-md-2" })
-    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
-    @Html.ValidationMessageFor(m => m.Name)
-
-    <div class="row" id="players-input"></div>
-    <br />
-    <input type="submit" value="Create" class="btn btn-primary"/>
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }
-
-@Scripts.Render("~/bundles/jqueryval")

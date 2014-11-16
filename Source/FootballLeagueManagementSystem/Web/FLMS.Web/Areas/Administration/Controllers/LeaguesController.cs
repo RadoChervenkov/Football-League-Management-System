@@ -22,7 +22,6 @@
         public LeaguesController(IFlmsData data)
             : base(data)
         {
-            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
         }
 
         public ActionResult Index()
