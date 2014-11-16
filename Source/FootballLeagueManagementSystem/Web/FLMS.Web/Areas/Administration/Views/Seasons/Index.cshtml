@@ -1,0 +1,35 @@
+﻿@using FLMS.Web.Areas.Administration.ViewModels.Seasons;
+@{
+    const string ControllerName = "Seasons";
+    ViewBag.Title = ControllerName;
+}
+
+<h2>@ViewBag.Title</h2>
+@(Html.Kendo()
+    .Grid<SeasonsViewModel>()
+    .Name("grid")
+    .Columns(cols =>
+    {
+        cols.Bound(pr => pr.Id);
+        cols.Bound(pr => pr.Name);
+        cols.Bound(pr => pr.CreatedOn).ClientTemplate("#=kendo.toString(CreatedOn, 'dd/MM/yyyy HH:mm:ss')#");
+        cols.Bound(pr => pr.ModifiedOn).ClientTemplate("#=kendo.toString(ModifiedOn, 'dd/MM/yyyy HH:mm:ss')#");
+        cols.Command(com => com.Edit()).Title("Edit");
+        cols.Command(com => com.Destroy()).Title("Delete");
+    })
+    .ColumnMenu()
+    .Pageable(page => page.Refresh(true))
+    .Sortable()
+    .Groupable()
+    .Filterable()
+    .Editable(edit => edit.Mode(GridEditMode.PopUp))
+    .ToolBar(toolbar => toolbar.Create())
+    .DataSource(data =>
+        data
+            .Ajax()
+            .Model(m => m.Id(s => s.Id))
+            .Read(read => read.Action("Read", ControllerName))
+            .Create(create => create.Action("Create", ControllerName))
+            .Update(update => update.Action("Update", ControllerName))
+            .Destroy(destroy => destroy.Action("Destroy", ControllerName))
+            ))

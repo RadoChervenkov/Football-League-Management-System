@@ -1,7 +1,7 @@
 ﻿@using FLMS.Web.Areas.Administration.ViewModels.Players;
 @{
-    ViewBag.Title = "Players";
     const string ControllerName = "Players";
+    ViewBag.Title = ControllerName;
 }
 
 <h2>@ViewBag.Title</h2>
@@ -13,12 +13,15 @@
         cols.Bound(pr => pr.Id);
         cols.Bound(pr => pr.FirstName);
         cols.Bound(pr => pr.LastName);
-        cols.Bound(pr => pr.Age);
-        cols.Bound(pr => pr.DateOfBirth);
-        cols.Bound(pr => pr.CreatedOn).Hidden();
-        cols.Bound(pr => pr.ModifiedOn).Hidden();
-        cols.Command(com => com.Edit()).Title("Промяна");
-        cols.Command(com => com.Destroy()).Title("Изтриване");
+        cols.Bound(pr => pr.DateOfBirth).ClientTemplate("#=kendo.toString(DateOfBirth, 'dd/MM/yyyy')#");
+        cols.Bound(pr => pr.Height);
+        cols.Bound(pr => pr.Weight);
+        cols.Bound(pr => pr.TeamId).Visible(false);
+        cols.Bound(pr => pr.TeamName);
+        cols.Bound(pr => pr.CreatedOn).Hidden().ClientTemplate("#=kendo.toString(CreatedOn, 'dd/MM/yyyy HH:mm:ss')#");
+        cols.Bound(pr => pr.ModifiedOn).Hidden().ClientTemplate("#=kendo.toString(ModifiedOn, 'dd/MM/yyyy HH:mm:ss')#");
+        cols.Command(com => com.Edit()).Title("Edit");
+        cols.Command(com => com.Destroy()).Title("Delete");
     })
     .ColumnMenu()
     .Pageable(page => page.Refresh(true))
@@ -30,7 +33,11 @@
     .DataSource(data =>
         data
             .Ajax()
-            .Model(m => m.Id(adv => adv.Id))
+            .Model(m =>
+                {
+                    m.Id(p => p.Id);
+                    m.Field(p => p.TeamName).Editable(false);
+                })
             .Read(read => read.Action("Read", ControllerName))
             .Create(create => create.Action("Create", ControllerName))
             .Update(update => update.Action("Update", ControllerName))

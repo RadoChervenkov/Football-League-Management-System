@@ -28,8 +28,7 @@
         [Required]
         [Range(120, 250)]
         public float Height { get; set; }
-
-        [Required]
+        
         public PlayerPosition Position { get; set; }
     }
 }

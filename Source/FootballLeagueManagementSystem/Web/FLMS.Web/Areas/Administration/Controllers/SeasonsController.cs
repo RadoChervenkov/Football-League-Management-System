@@ -1,40 +1,34 @@
-﻿namespace FLMS.Web.Areas.Administration.Controllers
+﻿using FLMS.Web.Areas.Administration.Controllers.Base;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Kendo.Mvc.UI;
+
+using Model = FLMS.Data.Models.Season;
+using ViewModel = FLMS.Web.Areas.Administration.ViewModels.Seasons.SeasonsViewModel;
+using FLMS.Web.Areas.Administration.ViewModels.Seasons;
+using FLMS.Data;
+using AutoMapper.QueryableExtensions;
+using System.Threading;
+using System.Globalization;
+
+namespace FLMS.Web.Areas.Administration.Controllers
 {
-    using System.Collections;
-    using System.Web.Mvc;
-    using System.Linq;
-    using FLMS.Data;
-    using FLMS.Web.Areas.Administration.Controllers.Base;
-    using Kendo.Mvc.UI;
-    using AutoMapper.QueryableExtensions;
-
-    using FLMS.Web.Areas.Administration.ViewModels.Players;
-    using System.Threading;
-    using System.Globalization;
-    using FLMS.Web.Areas.Administration.ViewModels.Team;
-
-    using Model = FLMS.Data.Models.Player;
-    using ViewModel = FLMS.Web.Areas.Administration.ViewModels.Players.PlayersViewModel;
-
-    public class PlayersController : KendoGridAdministrationController
+    public class SeasonsController : KendoGridAdministrationController
     {
-        public PlayersController(IFlmsData data) : base(data)
+        public SeasonsController(IFlmsData data)
+            : base(data)
         {
             Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
         }
-
         public ActionResult Index()
         {
-            ViewData["teams"] = this.Data.Teams.All()
-                                    .Select(t => new TeamViewModel
-                                           {
-                                               Id = t.Id,
-                                               Name = t.Name
-                                           });
-
             return View();
         }
-        
+
         [HttpPost]
         public ActionResult Create([DataSourceRequest]
                                    DataSourceRequest request, ViewModel model)
@@ -44,7 +38,7 @@
             {
                 model.Id = dbModel.Id;
             }
-            
+
             return this.GridOperation(model, request);
         }
 
@@ -62,21 +56,21 @@
         {
             if (model != null && ModelState.IsValid)
             {
-                this.Data.Players.Delete(model.Id.Value);
+                this.Data.Seasons.Delete(model.Id.Value);
                 this.Data.SaveChanges();
             }
-            
+
             return this.GridOperation(model, request);
         }
 
         protected override IEnumerable GetData()
         {
-            return this.Data.Players.All().Project().To<PlayersViewModel>();
+            return this.Data.Seasons.All().Project().To<SeasonsViewModel>();
         }
 
         protected override T GetById<T>(object id)
         {
-            return this.Data.Players.GetById(id) as T;
+            return this.Data.Seasons.GetById(id) as T;
         }
     }
 }

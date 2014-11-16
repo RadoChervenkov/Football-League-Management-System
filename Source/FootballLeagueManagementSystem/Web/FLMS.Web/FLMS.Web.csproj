@@ -212,9 +212,12 @@
     <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
     <Compile Include="Areas\Administration\Controllers\LeagueController.cs" />
     <Compile Include="Areas\Administration\Controllers\PlayersController.cs" />
+    <Compile Include="Areas\Administration\Controllers\SeasonsController.cs" />
     <Compile Include="Areas\Administration\ViewModels\Base\AdministrationViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\League\LeagueInputModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Players\PlayersViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Seasons\SeasonsViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Team\TeamViewModel.cs" />
     <Compile Include="Areas\Management\Controllers\PanelController.cs" />
     <Compile Include="Areas\Management\Controllers\TeamController.cs" />
     <Compile Include="Areas\Management\ManagementAreaRegistration.cs" />
@@ -487,6 +490,8 @@
     <Content Include="Areas\Management\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Management\Views\Panel\Index.cshtml" />
     <Content Include="Areas\Administration\Views\League\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\EditorTemplates\TeamDropdown.cshtml" />
+    <Content Include="Areas\Administration\Views\Seasons\Index.cshtml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -555,7 +560,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administration\Views\Admin\" />
     <Folder Include="Areas\Administration\Views\KendoGridAdministration\" />
     <Folder Include="Areas\Management\ViewModels\" />
     <Folder Include="Areas\Management\Views\Team\" />

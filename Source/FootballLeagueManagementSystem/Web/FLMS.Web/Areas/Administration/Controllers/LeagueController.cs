@@ -22,6 +22,20 @@
             return View();
         }
 
+        public ActionResult Details(int id)
+        {
+            var league = this.Data.Leagues.GetById(id);
+
+            //project to
+
+            if (league == null)
+            {
+                throw new HttpException(404, "League not found!");
+            }
+
+            return View(league);
+        }
+
         [HttpGet]
         public ActionResult Create()
         {

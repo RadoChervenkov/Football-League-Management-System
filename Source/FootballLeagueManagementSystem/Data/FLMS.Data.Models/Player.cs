@@ -22,12 +22,10 @@
         public float Height { get; set; }
 
         public PlayerPosition Position { get; set; }
+        
+        public int? TeamId { get; set; }
            
-        // public string PictureLink { get; set; }
-           
-         public int TeamId { get; set; }
-           
-         public virtual Team Team { get; set; }
+        public virtual Team Team { get; set; }
 
         public bool IsDeleted { get; set; }
 
