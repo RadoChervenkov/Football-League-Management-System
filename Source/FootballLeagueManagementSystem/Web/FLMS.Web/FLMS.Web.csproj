@@ -220,6 +220,7 @@
     <Compile Include="Areas\Administration\ViewModels\Players\PlayerViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Seasons\SeasonViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Teams\TeamViewModel.cs" />
+    <Compile Include="Areas\Management\Controllers\Base\ManagementController.cs" />
     <Compile Include="Areas\Management\Controllers\PanelController.cs" />
     <Compile Include="Areas\Management\Controllers\TeamController.cs" />
     <Compile Include="Areas\Management\ManagementAreaRegistration.cs" />
@@ -227,6 +228,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PlayerController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
@@ -521,7 +523,9 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -563,11 +567,13 @@
     <Content Include="Scripts\kendo\kendo.aspnetmvc.min.js.map" />
     <Content Include="Views\Team\_PlayersForm.cshtml" />
     <Content Include="Views\Team\Create.cshtml" />
+    <Content Include="Views\Player\All.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Views\KendoGridAdministration\" />
-    <Folder Include="Areas\Management\ViewModels\" />
+    <Folder Include="Areas\Management\ViewModels\League\" />
+    <Folder Include="Areas\Management\Views\Management\" />
     <Folder Include="Areas\Management\Views\Team\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>

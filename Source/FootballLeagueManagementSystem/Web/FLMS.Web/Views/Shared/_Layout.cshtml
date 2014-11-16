@@ -28,9 +28,14 @@
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, null)</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Create new team", "Create", "Team", new { area = "" }, null)</li>
+                    }
                     @if (User.IsInRole("Administrator"))
                     {
-                    <li>@Html.ActionLink("Administration", "Index", "Home", new { area = "Administration" }, null)
+                        <li>
+                            @Html.ActionLink("Administration", "Index", "Home", new { area = "Administration" }, null)
                         <ul>
                             <li>@Html.ActionLink("Seasons", "Index", "Seasons", new { area = "Administration" }, null)</li>
                             <li>@Html.ActionLink("Leagues", "Index", "Leagues", new { area = "Administration" }, null)</li>
@@ -40,6 +45,7 @@
                     </li>
                     }
                 </ul>
+
                 @Html.Partial("_LoginPartial")
             </div>
         </div>

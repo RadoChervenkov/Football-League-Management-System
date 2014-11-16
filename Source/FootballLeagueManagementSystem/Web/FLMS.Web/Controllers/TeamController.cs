@@ -4,6 +4,7 @@
     using FLMS.Data;
     using FLMS.Web.ViewModels.Team;
 
+    [Authorize]
     public class TeamController : BaseController
     {
         public TeamController(IFlmsData data) : base(data)
