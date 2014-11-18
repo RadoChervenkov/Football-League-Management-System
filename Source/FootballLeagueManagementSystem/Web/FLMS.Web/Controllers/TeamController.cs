@@ -8,33 +8,37 @@
     using AutoMapper.QueryableExtensions;
     using FLMS.Data.Models;
 
-    [Authorize]
     public class TeamController : BaseController
     {
         public TeamController(IFlmsData data) : base(data)
         {
         }
 
-        public ActionResult Index()
+        [HttpGet]
+        public ActionResult All()
         {
-            return View();
+            var teams = this.Data.Teams.All().Project().To<TeamListViewModel>().ToList();
+
+            return View(teams);
         }
 
         [HttpGet]
         public ActionResult Details(int id)
         {
             var team = this.Data.Teams.All().Where(x => x.Id == id).Project()
-                .To<TeamDetailsViewModel>().First();
+                           .To<TeamDetailsViewModel>().First();
 
             return View(team);
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult Create()
         {
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(TeamCreateViewModel team)

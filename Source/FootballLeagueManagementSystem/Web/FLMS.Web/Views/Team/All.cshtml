@@ -1,0 +1,18 @@
+﻿@model IEnumerable<FLMS.Web.ViewModels.Team.TeamListViewModel>
+
+@{
+    ViewBag.Title = "All teams";
+}
+
+<h3>@ViewBag.Title</h3>
+
+<div class="row text-center">
+    <div class="col-md-3"><strong>Name</strong></div>
+    <div class="col-md-3"><strong>League</strong></div>
+    <div class="col-md-3"><strong>Season</strong></div>
+    <div class="col-md-3"><strong>Action</strong></div>
+</div>
+<br />
+
+@Html.DisplayForModel(Model)
+

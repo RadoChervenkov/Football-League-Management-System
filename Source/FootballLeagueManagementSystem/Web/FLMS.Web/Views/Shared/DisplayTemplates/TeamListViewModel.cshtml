@@ -1,0 +1,9 @@
+﻿@model FLMS.Web.ViewModels.Team.TeamListViewModel
+
+<div class="row well well-sm text-center">
+    <div class="col-md-3">@Model.Name</div>
+    <div class="col-md-3">@Model.League</div>
+    <div class="col-md-3">@Model.Season</div>
+    <div class="col-md-3">@Html.ActionLink("Details", "Details", new { id = @Model.Id }, new { @class = "btn btn-primary" })</div>
+</div>
+<br />

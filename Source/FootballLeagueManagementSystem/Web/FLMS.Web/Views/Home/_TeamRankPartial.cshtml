@@ -3,7 +3,7 @@
 @foreach(var team in Model)
 {
     <tr>
-        <td>@team.Name</td>
+        <td>@Html.ActionLink(@team.Name, "Details", "Team", new { id = team.Id }, null)</td>
         <td>@team.Wins</td>
         <td>@team.Draws</td>
         <td>@team.Loses</td>

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper.QueryableExtensions;
+using FLMS.Web.ViewModels.Player;
 
 namespace FLMS.Web.Controllers
 {
@@ -11,11 +13,6 @@ namespace FLMS.Web.Controllers
     {
         public PlayerController(IFlmsData data) : base(data)
         {
-        }
-        // GET: Player
-        public ActionResult Index()
-        {
-            return View();
         }
 
         public ActionResult Details(int id)
@@ -27,7 +24,7 @@ namespace FLMS.Web.Controllers
 
         public ActionResult All()
         {
-            var players = this.Data.Players.All();
+            var players = this.Data.Players.All().Project().To<PlayerListViewModel>().ToList();
 
             return View(players);
         }

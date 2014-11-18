@@ -1,0 +1,8 @@
+﻿@model FLMS.Web.ViewModels.Player.PlayerListViewModel
+
+<tr>
+    <td>@Model.FirstName</td>
+    <td>@Model.LastName</td>
+    <td>@Model.Position.ToString()</td>
+    <td>@Html.ActionLink("Details", "Player", new { id = @Model.Id }, new { @class = "btn btn-primary" })</td>
+</tr>

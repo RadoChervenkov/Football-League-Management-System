@@ -6,6 +6,7 @@
     using System.Threading;
     using System.Globalization;
 
+    [HandleError]
     public abstract class BaseController : Controller
     {
         public BaseController(IFlmsData data)

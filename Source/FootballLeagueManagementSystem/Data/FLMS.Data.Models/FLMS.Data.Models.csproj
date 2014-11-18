@@ -53,15 +53,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
+    <Compile Include="Comment.cs" />
     <Compile Include="League.cs" />
     <Compile Include="Match.cs" />
     <Compile Include="MatchResult.cs" />
     <Compile Include="MatchState.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="PlayerComment.cs" />
     <Compile Include="PlayerPosition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Season.cs" />
     <Compile Include="Team.cs" />
+    <Compile Include="TeamComment.cs" />
     <Compile Include="Town.cs" />
   </ItemGroup>
   <ItemGroup>

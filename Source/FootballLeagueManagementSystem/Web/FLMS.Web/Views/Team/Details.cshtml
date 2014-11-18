@@ -1,44 +1,56 @@
-﻿@model FLMS.Web.ViewModels.Team.TeamDetailsViewModel
+﻿@using FLMS.Web.ViewModels.Comment
+@model FLMS.Web.ViewModels.Team.TeamDetailsViewModel
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Team Details";
 }
 
-<h2>Details</h2>
+<h2>@ViewBag.Title</h2>
 
 <div>
-    <h4>TeamDetailsViewModel</h4>
-    <hr />
-    @ViewBag.Msg
-    sdfsdfd
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.League)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.League)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Season)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Season)
-        </dd>
-
-    </dl>
+    <div class="row">
+        <div class="col-md-4">@Html.DisplayNameFor(model => model.Name)</div>
+        <div>@Html.DisplayFor(model => model.Name)</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">@Html.DisplayNameFor(model => model.League)</div>
+        <div>@Html.DisplayFor(model => model.League)</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">@Html.DisplayNameFor(model => model.Season)</div>
+        <div>@Html.DisplayFor(model => model.Season)</div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<h3>Players list</h3>
+<table class="table table-striped table-hover">
+    <tr>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Position</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var player in Model.Players)
+    {
+        <tr>
+            <td>@player.FirstName</td>
+            <td>@player.LastName</td>
+            <td>@player.Position.ToString()</td>
+            <td>@Html.ActionLink("Details", "Player", new { id = player.Id }, new { @class = "btn btn-primary" })</td>
+        </tr>
+    }
+
+    @*@Html.DisplayForModel(Model.Players)*@
+</table>
+
+@if (User.Identity.IsAuthenticated)
+{
+    @Html.Partial("_PostTeamCommentPartial", new PostTeamCommentViewModel(Model.Id))
+}
+
+<div id="comments">
+    @foreach (var comment in Model.Comments)
+    {
+            @Html.Partial("_TeamCommentPartial", comment)
+    }
+</div>

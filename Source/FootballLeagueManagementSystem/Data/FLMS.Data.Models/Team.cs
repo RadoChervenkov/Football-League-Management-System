@@ -9,11 +9,13 @@
     {
         private ICollection<Player> players;
         private ICollection<Match> matches;
+        private ICollection<TeamComment> comments;
 
         public Team()
         {
             this.players = new HashSet<Player>();
             this.matches = new HashSet<Match>();
+            this.comments = new HashSet<TeamComment>();
         }
 
         [Key]
@@ -48,6 +50,18 @@
             set
             {
                 this.matches = value;
+            }
+        }
+
+        public virtual ICollection<TeamComment> Comments
+        {
+            get
+            {
+                return this.comments;
+            }
+            set
+            {
+                this.comments = value;
             }
         }
 
