@@ -7,6 +7,7 @@
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
     using FLMS.Data.Models;
+    using System.Web;
 
     public class TeamController : BaseController
     {
@@ -27,6 +28,11 @@
         {
             var team = this.Data.Teams.All().Where(x => x.Id == id).Project()
                            .To<TeamDetailsViewModel>().First();
+
+            if (team == null)
+            {
+                throw new HttpException(404, "Team not found");
+            }
 
             return View(team);
         }
@@ -58,6 +64,7 @@
             return View(team);
         }
 
+        [Authorize]
         public ActionResult LoadPlayersForm(int count)
         {
             ViewBag.PlayersCount = count;

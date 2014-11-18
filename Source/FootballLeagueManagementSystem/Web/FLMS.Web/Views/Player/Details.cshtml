@@ -1,0 +1,53 @@
+﻿@model FLMS.Web.ViewModels.Player.PlayerDetailsViewModel
+
+@{
+    ViewBag.Title = "Player Details";
+}
+
+<h3>@ViewBag.Title</h3>
+
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <span>First name</span>
+        </div>
+        <div>@Model.FirstName</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <span>Last name</span>
+        </div>
+        <div>@Model.LastName</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <span>Date of birth</span>
+        </div>
+        <div>@Model.DateOfBirth.ToShortDateString()</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <span>Team</span>
+        </div>
+        <div>@Model.Team</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <span>Weight</span>
+        </div>
+        <div>@Model.Weight</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <span>Height</span>
+        </div>
+        <div>@Model.Height</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <span>Position</span>
+        </div>
+        <div>@Model.Position.ToString()</div>
+    </div>
+</div>

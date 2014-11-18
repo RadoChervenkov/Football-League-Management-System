@@ -17,9 +17,14 @@ namespace FLMS.Web.Controllers
 
         public ActionResult Details(int id)
         {
+            var player = this.Data.Players.All().Where(p => p.Id == id).Project().To<PlayerDetailsViewModel>().FirstOrDefault();
 
+            if (player == null)
+            {
+                throw new HttpException(404, "Player not found");
+            }
 
-            return View();
+            return View(player);
         }
 
         public ActionResult All()
