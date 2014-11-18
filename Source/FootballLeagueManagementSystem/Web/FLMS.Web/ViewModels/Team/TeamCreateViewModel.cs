@@ -5,7 +5,7 @@
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     
-    public class CreateTeamViewModel : IMapFrom<Team>
+    public class TeamCreateViewModel : IMapFrom<Team>
     {
         public int Id { get; set; }
 

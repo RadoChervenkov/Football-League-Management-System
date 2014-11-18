@@ -1,9 +1,11 @@
 ﻿namespace FLMS.Web.Controllers
 {
+    using System.Linq;
     using System.Web.Mvc;
     using FLMS.Data;
     using FLMS.Web.ViewModels.Team;
     using AutoMapper;
+    using AutoMapper.QueryableExtensions;
     using FLMS.Data.Models;
 
     [Authorize]
@@ -19,6 +21,16 @@
         }
 
         [HttpGet]
+        public ActionResult Details(int id)
+        {
+            ViewBag.Msg = "Works!!!!";
+            var team = this.Data.Teams.All().Where(x => x.Id == id).Project()
+                .To<TeamDetailsViewModel>().First();
+
+            return View(team);
+        }
+
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -26,7 +38,7 @@
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CreateTeamViewModel team)
+        public ActionResult Create(TeamCreateViewModel team)
         {
             if (team != null && ModelState.IsValid)
             {

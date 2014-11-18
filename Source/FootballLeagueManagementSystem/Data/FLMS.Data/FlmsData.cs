@@ -63,6 +63,14 @@
                 return this.GetDeletableEntityRepository<Team>();
             }
         }
+
+        public IDeletableEntityRepository<Match> Matches
+        {
+            get
+            {
+                return this.GetDeletableEntityRepository<Match>();
+            }
+        }
         
         public int SaveChanges()
         {

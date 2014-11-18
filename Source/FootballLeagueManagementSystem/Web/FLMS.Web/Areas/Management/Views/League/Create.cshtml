@@ -7,7 +7,7 @@
 
 @using (@Html.BeginForm("Create", "League", FormMethod.Post, new { @class = "form-horizontal" }))
 {
-    @Html.AntiForgeryToken();
+    @Html.AntiForgeryToken()
     
     <div class="form-group">
         @Html.LabelFor(m => m.Name)
@@ -17,5 +17,5 @@
         @Html.LabelFor(m => m.SeasonId)
         @Html.DropDownListFor(m => m.SeasonId, Model.SelectableSeasons, new { @class = "form-control" })
     </div>
-    <input type="submit" class="btn btn-primary "/>
+    <input type="submit" value="Create" class="btn btn-primary "/>
 }

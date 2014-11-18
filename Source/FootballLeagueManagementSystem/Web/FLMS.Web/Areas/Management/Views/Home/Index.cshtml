@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Management Panel";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (TempData["success"] != null)
+{
+    <div class="alert alert-dismissable alert-success">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        @TempData["success"]
+    </div>
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">Management areas</div>
+    <div class="panel-body">
+        @Html.ActionLink("Manage Seasons", "Index", "Seasons", new { }, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Add league", "Create", "League", new { }, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Add match", "Create", "Match", new { }, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Manage Players", "Index", "Players", new { }, new { @class = "btn btn-primary" })
+    </div>
+</div>

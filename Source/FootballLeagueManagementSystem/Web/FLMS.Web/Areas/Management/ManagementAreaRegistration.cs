@@ -17,7 +17,8 @@ namespace FLMS.Web.Areas.Management
             context.MapRoute(
                 "Management_default",
                 "Management/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                //namespaces: new[] { "FLMS.Web.Areas.Management.Controllers" }
             );
         }
     }

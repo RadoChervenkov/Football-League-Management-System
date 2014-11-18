@@ -1,0 +1,21 @@
+﻿@model FLMS.Web.Areas.Management.ViewModels.League.LeagueDropdownViewModel
+@{
+    ViewBag.Title = "Create match";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Ajax.BeginForm("GetTeams", "Match",
+    new AjaxOptions { HttpMethod = "Get", InsertionMode = InsertionMode.Replace, UpdateTargetId = "form-container" }, 
+    new { id = "form-container"}))
+{
+    @Html.DropDownListFor(m => m.Id, Model.SelectableLeagues, new { @class = "form-control"})
+    <br />
+    <input type="submit" value="Select" class="btn btn-primary" />
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="League.cs" />
+    <Compile Include="Match.cs" />
     <Compile Include="MatchResult.cs" />
     <Compile Include="MatchState.cs" />
     <Compile Include="Player.cs" />

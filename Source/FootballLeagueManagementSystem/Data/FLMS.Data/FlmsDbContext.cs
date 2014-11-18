@@ -23,6 +23,8 @@
 
         public virtual IDbSet<Team> Teams { get; set; }
 
+        public virtual IDbSet<Match> Matches { get; set; }
+
         public DbContext DbContext
         {
             get
@@ -45,6 +47,21 @@
         public new IDbSet<T> Set<T>() where T : class
         {
             return base.Set<T>();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Match>()
+                        .HasRequired(x => x.HomeTeam)
+                        .WithMany()
+                        .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Match>()
+                        .HasRequired(x => x.AwayTeam)
+                        .WithMany()
+                        .WillCascadeOnDelete(false);
+
+            base.OnModelCreating(modelBuilder);
         }
 
         private void ApplyAuditInfoRules()

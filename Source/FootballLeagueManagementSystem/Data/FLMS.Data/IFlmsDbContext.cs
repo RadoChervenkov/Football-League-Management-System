@@ -15,6 +15,8 @@
         IDbSet<League> Leagues { get; set; }
 
         IDbSet<Team> Teams { get; set; }
+
+        IDbSet<Match> Matches { get; set; }
         
         DbContext DbContext { get; }
 

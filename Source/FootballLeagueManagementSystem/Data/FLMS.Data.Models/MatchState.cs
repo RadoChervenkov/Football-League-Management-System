@@ -2,9 +2,7 @@
 {
     public enum MatchState
     {
-        Pending,
-        InProgress,
-        Cancelled,
-        Finished
+        Pending = 0,
+        Finished = 1
     }
 }

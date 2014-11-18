@@ -6,7 +6,7 @@
     using System.Web;
     using System.Web.Mvc;
 
-    public class PanelController : Controller
+    public class HomeController : Controller
     {
         public ActionResult Index()
         {
