@@ -1,6 +1,9 @@
 ﻿namespace FLMS.Data.Models
 {
-    public class MatchResult
+    public enum MatchResult
     {
+        HomeWins = 0,
+        Draw = 1,
+        AwayWins = 2
     }
 }

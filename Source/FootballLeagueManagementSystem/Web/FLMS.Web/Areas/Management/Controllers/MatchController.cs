@@ -66,6 +66,60 @@
             return PartialView("_CreateMatchPartial", model);
         }
 
-        public object LeagueDropDownViewModel { get; set; }
+        [HttpGet]
+        public ActionResult Result()
+        {
+            var matches = this.Data.Matches.All().Where(m => m.State == MatchState.Pending)
+                              .Project().To<MatchDropdownViewModel>().ToList();
+
+            var model = new MatchResultInputModel();
+            model.SelectableTeams = matches.Select(x => new SelectListItem
+            {
+                Value = x.Id.ToString(),
+                Text = x.Name.ToString()
+            }).ToList();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Result(MatchResultInputModel model)
+        {
+            if (model != null && ModelState.IsValid)
+            {
+                var match = this.Data.Matches.All().Where(m => m.Id == model.Id && m.State == MatchState.Pending).FirstOrDefault();
+                if (match != null)
+                {
+                    if (model.HomeGoals > model.AwayGoals)
+                    {
+                        match.Result = MatchResult.HomeWins;
+                    }
+                    else if (model.AwayGoals > model.HomeGoals)
+                    {
+                        match.Result = MatchResult.AwayWins;
+                    }
+                    else
+                    {
+                        match.Result = MatchResult.Draw;
+                    }
+
+                    match.HomeGoals = model.HomeGoals;
+                    match.AwayGoals = model.AwayGoals;
+                    match.State = MatchState.Finished;
+
+                    this.Data.SaveChanges();
+
+                    TempData["success"] = "Successfully added match result!";
+
+                    return RedirectToAction("Index", "Home");
+                    
+                }
+
+                throw new HttpException(400, "Invalid match!");                
+            }
+
+            return View(model);
+        }
     }
 }

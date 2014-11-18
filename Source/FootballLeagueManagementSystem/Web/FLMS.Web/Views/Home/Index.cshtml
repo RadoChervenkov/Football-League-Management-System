@@ -1,3 +1,21 @@
-﻿@{
+﻿@model IEnumerable<FLMS.Web.ViewModels.League.LeagueTableViewModel>
+@{
     ViewBag.Title = "Home Page";
+}
+
+@foreach (var league in Model)
+{
+    <h3>@league.Name</h3>
+    <table class="table table-striped table-hover">
+        <tr>
+            <th>Team</th>
+            <th>Wins</th>
+            <th>Draws</th>
+            <th>Loses</th>
+            <th>Points</th>
+        </tr>
+        @{
+            Html.RenderPartial("_TeamRankPartial", league.Teams);
+        }
+    </table>
 }

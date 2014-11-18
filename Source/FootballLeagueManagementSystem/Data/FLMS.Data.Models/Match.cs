@@ -34,6 +34,8 @@
 
         public int AwayGoals { get; set; }
 
+        public MatchResult Result { get; set; }
+
         public MatchState State { get; set; }
 
         public bool IsDeleted { get; set; }

@@ -1,0 +1,22 @@
+﻿@model FLMS.Web.Areas.Management.ViewModels.Match.MatchResultInputModel
+@{
+    ViewBag.Title = "Result";
+}
+
+@using (Html.BeginForm("Result", "Match", null, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <p>Select match:</p>
+    @Html.DropDownListFor(m => m.Id, Model.SelectableTeams, new { @class = "form-control"})
+    <br />
+    @Html.LabelFor(m => m.HomeGoals)
+    @Html.TextBoxFor(m => m.HomeGoals, new { @class="form-control" })
+    <br />
+    @Html.LabelFor(m => m.AwayGoals)
+    @Html.TextBoxFor(m => m.AwayGoals, new { @class = "form-control" })
+    <br />
+    
+    <input type="submit" value="Add result" class="btn btn-primary" />
+}
+

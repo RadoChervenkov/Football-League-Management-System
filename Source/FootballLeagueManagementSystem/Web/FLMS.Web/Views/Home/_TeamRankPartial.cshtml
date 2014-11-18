@@ -1,0 +1,12 @@
+﻿@model IEnumerable<FLMS.Web.ViewModels.Team.TeamRankViewModel>
+
+@foreach(var team in Model)
+{
+    <tr>
+        <td>@team.Name</td>
+        <td>@team.Wins</td>
+        <td>@team.Draws</td>
+        <td>@team.Loses</td>
+        <td><strong>@team.Points</strong></td>
+    </tr>
+}
