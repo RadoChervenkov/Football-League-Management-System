@@ -84,11 +84,19 @@ namespace FLMS.Data.Migrations
         {
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             roleManager.Create(new IdentityRole("Administrator"));
+            roleManager.Create(new IdentityRole("Manager"));
 
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-            var user = new ApplicationUser { UserName = "admin", Email = "admin@admin.admin" };
-            userManager.Create(user, "admin321");
-            userManager.AddToRole(user.Id, "Administrator");
+            
+            var adminUser = new ApplicationUser { UserName = "admin@admin.admin" };
+            userManager.Create(adminUser, "123456");
+            userManager.AddToRole(adminUser.Id, "Administrator");
+
+            var manager = new ApplicationUser { UserName = "manager@admin.admin" };
+            userManager.Create(manager, "123456");
+            userManager.AddToRole(manager.Id, "Manager");
+
+            context.SaveChanges();
         }
 
         private void SeedSeasons(FlmsDbContext context)

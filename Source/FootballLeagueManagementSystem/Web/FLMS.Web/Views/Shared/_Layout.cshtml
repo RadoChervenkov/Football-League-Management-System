@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Football league management system - @ViewBag.Title</title>
+    <title>Football League MS - @ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/kendo")
     @Scripts.Render("~/bundles/modernizr")
@@ -21,7 +21,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Football league management system", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Football League MS", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -38,11 +38,6 @@
                     {
                         <li>
                             @Html.ActionLink("Management", "Index", "Home", new { area = "Management" }, null)
-                            <ul>
-                                <li>@Html.ActionLink("Add league", "Create", "League", new { area = "Management" }, null)</li>
-                                <li>@Html.ActionLink("Add match", "Create", "Match", new { area = "Management" }, null)</li>
-                                <li>@Html.ActionLink("Add result", "Result", "Match", new { area = "Management" }, null)</li>
-                            </ul>
                         </li>
                     }
 
@@ -50,12 +45,6 @@
                     {
                         <li>
                             @Html.ActionLink("Administration", "Index", "Home", new { area = "Administration" }, null)
-                            <ul>
-                                <li>@Html.ActionLink("Seasons", "Index", "Seasons", new { area = "Administration" }, null)</li>
-                                <li>@Html.ActionLink("Leagues", "Index", "Leagues", new { area = "Administration" }, null)</li>
-                                <li>@Html.ActionLink("Teams", "Index", "Teams", new { area = "Administration" }, null)</li>
-                                <li>@Html.ActionLink("Players", "Index", "Players", new { area = "Administration" }, null)</li>
-                            </ul>
                         </li>
                     }
                     <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, null)</li>

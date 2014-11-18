@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+
     using FLMS.Data.Common.Models;
 
     public class League : AuditInfo, IDeletableEntity
@@ -32,6 +33,7 @@
             {
                 return this.teams;
             }
+
             set
             {
                 this.teams = value;

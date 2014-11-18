@@ -1,9 +1,9 @@
 ﻿namespace FLMS.Data.Models
 {
-    using FLMS.Data.Common.Models;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using FLMS.Data.Common.Models;
     
     public class Team : AuditInfo, IDeletableEntity
     {
@@ -35,6 +35,7 @@
             {
                 return this.players;
             }
+
             set
             {
                 this.players = value;
@@ -47,6 +48,7 @@
             {
                 return this.matches;
             }
+
             set
             {
                 this.matches = value;
@@ -59,6 +61,7 @@
             {
                 return this.comments;
             }
+
             set
             {
                 this.comments = value;

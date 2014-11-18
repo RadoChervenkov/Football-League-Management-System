@@ -2,7 +2,7 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations;
-    
+
     using FLMS.Data.Common.Models;
     
     public class Season : AuditInfo, IDeletableEntity

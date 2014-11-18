@@ -211,6 +211,7 @@
     <Compile Include="Areas\Administration\Controllers\Base\KendoGridAdministrationController.cs" />
     <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
     <Compile Include="Areas\Administration\Controllers\LeaguesController.cs" />
+    <Compile Include="Areas\Administration\Controllers\MatchesController.cs" />
     <Compile Include="Areas\Administration\Controllers\TeamsController.cs" />
     <Compile Include="Areas\Management\Controllers\LeagueController.cs" />
     <Compile Include="Areas\Administration\Controllers\PlayersController.cs" />
@@ -605,6 +606,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Views\KendoGridAdministration\" />
+    <Folder Include="Areas\Administration\Views\Matches\" />
     <Folder Include="Areas\Management\Views\Management\" />
     <Folder Include="Areas\Management\Views\Team\" />
     <Folder Include="Views\Base\" />
