@@ -8,13 +8,13 @@
     using FLMS.Web.Areas.Administration.ViewModels.Base;
     using FLMS.Web.Infrastructure.Mapping;
 
-
     public class TeamViewModel : AdministrationViewModel, IMapFrom<Team>
     {
         [HiddenInput(DisplayValue = false)]
         public int? Id { get; set; }
 
         [Required]
+        [StringLength(100)]
         [Display(Name = "Name")]
         public string Name { get; set; }
 

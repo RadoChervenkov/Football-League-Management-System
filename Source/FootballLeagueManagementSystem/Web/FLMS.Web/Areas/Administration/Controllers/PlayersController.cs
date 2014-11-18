@@ -1,8 +1,6 @@
 ﻿namespace FLMS.Web.Areas.Administration.Controllers
 {
     using System.Collections;
-    using System.Globalization;
-    using System.Threading;
     using System.Web.Mvc;
 
     using AutoMapper.QueryableExtensions;
@@ -23,9 +21,9 @@
 
         public ActionResult Index()
         {
-            ViewData["teams"] = this.Data.Teams.All().Project().To<TeamViewModel>();
+            this.ViewData["teams"] = this.Data.Teams.All().Project().To<TeamViewModel>();
 
-            return View();
+            return this.View();
         }
         
         [HttpPost]

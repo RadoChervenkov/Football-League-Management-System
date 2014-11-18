@@ -1,18 +1,17 @@
 ﻿namespace FLMS.Web.Areas.Management.Controllers
 {
-    using FLMS.Data;
-    using FLMS.Web.Areas.Management.Controllers.Base;
-    using System;
-    using System.Collections.Generic;
-    using AutoMapper.QueryableExtensions;
     using System.Linq;
     using System.Web;
     using System.Web.Mvc;
-    using FLMS.Web.Areas.Management.ViewModels.Team;
-    using FLMS.Web.Areas.Management.ViewModels.Match;
+
     using AutoMapper;
+    using AutoMapper.QueryableExtensions;
+    using FLMS.Data;
     using FLMS.Data.Models;
+    using FLMS.Web.Areas.Management.Controllers.Base;
     using FLMS.Web.Areas.Management.ViewModels.League;
+    using FLMS.Web.Areas.Management.ViewModels.Match;
+    using FLMS.Web.Areas.Management.ViewModels.Team;
 
     public class MatchController : ManagementController
     {
@@ -32,7 +31,7 @@
                 Text = x.Name.ToString()
             }).ToList();
 
-            return View(model);
+            return this.View(model);
         }
 
         [HttpPost]
@@ -45,9 +44,13 @@
                 dbModel.State = MatchState.Pending;
                 this.Data.Matches.Add(dbModel);
                 this.Data.SaveChanges();
+
+                this.TempData["success"] = "Successfully created new match!";
+
+                return this.RedirectToAction("Index", "Home");
             }
 
-            return RedirectToAction("Index", "Home");
+            return this.View(input);
         }
 
         [HttpGet]
@@ -63,7 +66,7 @@
                 Text = x.Name.ToString()
             }).ToList();
 
-            return PartialView("_CreateMatchPartial", model);
+            return this.PartialView("_CreateMatchPartial", model);
         }
 
         [HttpGet]
@@ -79,7 +82,7 @@
                 Text = x.Name.ToString()
             }).ToList();
 
-            return View(model);
+            return this.View(model);
         }
 
         [HttpPost]
@@ -110,16 +113,15 @@
 
                     this.Data.SaveChanges();
 
-                    TempData["success"] = "Successfully added match result!";
+                    this.TempData["success"] = "Successfully added match result!";
 
-                    return RedirectToAction("Index", "Home");
-                    
+                    return this.RedirectToAction("Index", "Home");                    
                 }
 
                 throw new HttpException(400, "Invalid match!");                
             }
 
-            return View(model);
+            return this.View(model);
         }
     }
 }

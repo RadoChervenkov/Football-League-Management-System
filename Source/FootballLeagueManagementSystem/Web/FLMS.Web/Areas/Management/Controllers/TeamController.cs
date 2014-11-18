@@ -2,18 +2,24 @@
 {
     using System.Web.Mvc;
 
-    public class TeamController : Controller
+    using FLMS.Data;
+    using FLMS.Web.Areas.Management.Controllers.Base;
+
+    public class TeamController : ManagementController
     {
-        // GET: Management/Team
+        public TeamController(IFlmsData data) : base(data)
+        {
+        }
+
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         public ActionResult GetPlayerInputs(int count)
         {
             ViewBag.InputsCount = count;
-            return PartialView("_PlayersForm");
+            return this.PartialView("_PlayersForm");
         }
     }
 }

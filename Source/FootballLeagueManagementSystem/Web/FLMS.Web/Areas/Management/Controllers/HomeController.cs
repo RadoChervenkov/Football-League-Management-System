@@ -1,16 +1,19 @@
 ﻿namespace FLMS.Web.Areas.Management.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
     using System.Web.Mvc;
 
-    public class HomeController : Controller
+    using FLMS.Data;
+    using FLMS.Web.Areas.Management.Controllers.Base;
+
+    public class HomeController : ManagementController
     {
+        public HomeController(IFlmsData data) : base(data)
+        {
+        }
+
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
     }
 }

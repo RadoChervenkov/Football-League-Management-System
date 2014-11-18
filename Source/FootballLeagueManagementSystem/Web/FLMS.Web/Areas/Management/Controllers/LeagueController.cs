@@ -1,17 +1,15 @@
 ﻿namespace FLMS.Web.Areas.Management.Controllers
 {
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+
     using AutoMapper;
     using FLMS.Data;
     using FLMS.Data.Models;
     using FLMS.Web.Areas.Administration.ViewModels.League;
     using FLMS.Web.Areas.Management.Controllers.Base;
     using FLMS.Web.Areas.Management.ViewModels.League;
-    using FLMS.Web.Controllers;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using System.Web.Mvc;
 
     public class LeagueController : ManagementController
     {
@@ -21,21 +19,19 @@
 
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         public ActionResult Details(int id)
         {
             var league = this.Data.Leagues.GetById(id);
 
-            //project to
-
             if (league == null)
             {
                 throw new HttpException(404, "League not found!");
             }
 
-            return View(league);
+            return this.View(league);
         }
 
         [HttpGet]
@@ -50,7 +46,7 @@
                 Text = x.Name.ToString()
             }).ToList();
 
-            return View(model);
+            return this.View(model);
         }
 
         [HttpPost]
@@ -63,12 +59,12 @@
                 this.Data.Leagues.Add(dbModel);
                 this.Data.SaveChanges();
 
-                TempData["success"] = "Successfully created new league!";
+                this.TempData["success"] = "Successfully created new league!";
                 
-                return RedirectToAction("Index", "Home");
+                return this.RedirectToAction("Index", "Home");
             }
 
-            return View(inputModel);
+            return this.View(inputModel);
         }
     }
 }

@@ -4,12 +4,12 @@ namespace FLMS.Web.App_Start
 {
     using System;
     using System.Web;
+
+    using FLMS.Data;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
     using Ninject;
     using Ninject.Web.Common;
-    using System.Data.Entity;
-    using FLMS.Data;
-    using FLMS.Data.Common.Repository;
+
 
     public static class NinjectWebCommon 
     {

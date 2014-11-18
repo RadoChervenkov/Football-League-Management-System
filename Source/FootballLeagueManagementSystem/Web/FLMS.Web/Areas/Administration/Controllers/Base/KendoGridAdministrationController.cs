@@ -57,10 +57,9 @@
 
         protected abstract T GetById<T>(object id) where T : class;
 
-        protected JsonResult GridOperation<T>(T model, [DataSourceRequest]
-                                              DataSourceRequest request)
+        protected JsonResult GridOperation<T>(T model, [DataSourceRequest]DataSourceRequest request)
         {
-            return Json(new[] { model }.ToDataSourceResult(request, this.ModelState));
+            return this.Json(new[] { model }.ToDataSourceResult(request, this.ModelState));
         }
 
         private void ChangeEntityStateAndSave(object dbModel, EntityState state)

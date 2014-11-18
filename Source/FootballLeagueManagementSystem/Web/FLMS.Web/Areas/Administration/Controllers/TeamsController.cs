@@ -1,8 +1,6 @@
 ﻿namespace FLMS.Web.Areas.Administration.Controllers
 {
     using System.Collections;
-    using System.Globalization;
-    using System.Threading;
     using System.Web.Mvc;
 
     using AutoMapper.QueryableExtensions;
@@ -15,7 +13,6 @@
     using Model = FLMS.Data.Models.Team;
     using ViewModel = FLMS.Web.Areas.Administration.ViewModels.Teams.TeamViewModel;
 
-
     public class TeamsController : KendoGridAdministrationController
     {
         public TeamsController(IFlmsData data)
@@ -25,9 +22,9 @@
 
         public ActionResult Index()
         {
-            ViewData["leagues"] = this.Data.Leagues.All().Project().To<LeagueViewModel>();
+            this.ViewData["leagues"] = this.Data.Leagues.All().Project().To<LeagueViewModel>();
 
-            return View();
+            return this.View();
         }
 
         [HttpPost]
