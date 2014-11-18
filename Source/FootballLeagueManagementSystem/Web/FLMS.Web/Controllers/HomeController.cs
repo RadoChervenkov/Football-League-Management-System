@@ -16,7 +16,15 @@ namespace FLMS.Web.Controllers
         {
         }
 
+        [HttpGet]
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        [OutputCache(Duration = 60 * 60)]
+        [ChildActionOnly]
+        public ActionResult GetLeaguesData()
         {
             var season = this.Data.Seasons.All().Where(s => s.Name == "Season 2014").FirstOrDefault();
 
@@ -29,37 +37,31 @@ namespace FLMS.Web.Controllers
 
                 foreach (var team in currentLeague.Teams)
                 {
-                    var homeWins = this.Data.Teams.All().Where(x => x.Id == team.Id).FirstOrDefault()
-                                       .Matches.Where(m => m.HomeTeamId == team.Id && m.State == MatchState.Finished && m.Result == MatchResult.HomeWins);
+                    var winsHome = this.Data.Matches.All().Where(m => m.LeagueId == currentLeague.Id && m.HomeTeamId == team.Id && m.State == MatchState.Finished && m.Result == MatchResult.HomeWins).Count();
+                    var winsAway = this.Data.Matches.All().Where(m => m.LeagueId == currentLeague.Id && m.AwayTeamId == team.Id && m.State == MatchState.Finished && m.Result == MatchResult.AwayWins).Count();
 
-                    var awayWins = this.Data.Teams.All().Where(x => x.Id == team.Id).FirstOrDefault();
-                                       /*.Matches.Where(m => m.AwayTeamId == team.Id && m.State == MatchState.Finished && m.Result == MatchResult.AwayWins);*/
+                    var drawsHome = this.Data.Matches.All().Where(m => m.LeagueId == currentLeague.Id && m.HomeTeamId == team.Id && m.State == MatchState.Finished && m.Result == MatchResult.Draw).Count();
+                    var drawsAway = this.Data.Matches.All().Where(m => m.LeagueId == currentLeague.Id && m.AwayTeamId == team.Id && m.State == MatchState.Finished && m.Result == MatchResult.Draw).Count();
 
-                    int k = 0;
+                    var losesHome = this.Data.Matches.All().Where(m => m.LeagueId == currentLeague.Id && m.HomeTeamId == team.Id && m.State == MatchState.Finished && m.Result == MatchResult.AwayWins).Count();
+                    var losesAway = this.Data.Matches.All().Where(m => m.LeagueId == currentLeague.Id && m.AwayTeamId == team.Id && m.State == MatchState.Finished && m.Result == MatchResult.HomeWins).Count();
 
-                    //var drawsHome = this.Data.Teams.All().Where(x => x.Id == team.Id).FirstOrDefault()
-                    //                    .Matches.Where(m => m.HomeTeamId == team.Id && m.State == MatchState.Finished && m.Result == MatchResult.Draw).Count();
+                    var totalWins = winsHome + winsAway;
+                    var totalDraws = drawsHome + drawsAway;
+                    var totalLoses = losesHome + losesAway;
 
-                    //var drawsAway = this.Data.Teams.All().Where(x => x.Id == team.Id).FirstOrDefault()
-                    //                    .Matches.Where(m => m.AwayTeamId == team.Id && m.State == MatchState.Finished && m.Result == MatchResult.Draw).Count();
+                    team.Wins = totalWins;
+                    team.Loses = totalLoses;
+                    team.Draws = totalDraws;
 
-                    //var totalWins = homeWins + awayWins;
-                    //var totalDraws = drawsHome + drawsAway;
-
-                    //var loses = this.Data.Teams.All().Where(x => x.Id == team.Id).FirstOrDefault().Matches.Where(m => m.State == MatchState.Finished).Count() - totalWins - totalDraws;
-
-                    //var totalLoses = loses;
-
-                    //team.Wins = totalWins;
-                    //team.Loses = totalLoses;
-                    //team.Draws = totalDraws;
-
-                    //team.Points += (totalWins * 3);
-                    //team.Points += totalDraws;
+                    team.Points += (totalWins * 3);
+                    team.Points += totalDraws;
                 }
-            }
 
-            return View(leagues);
+                currentLeague.Teams = currentLeague.Teams.OrderByDescending(x => x.Points).ToList();
+            }
+            
+            return PartialView("_LeaguesPartial", leagues);
         }
 
         public ActionResult About()

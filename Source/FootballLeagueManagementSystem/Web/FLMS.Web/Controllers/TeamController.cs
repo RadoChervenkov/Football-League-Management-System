@@ -23,7 +23,6 @@
         [HttpGet]
         public ActionResult Details(int id)
         {
-            ViewBag.Msg = "Works!!!!";
             var team = this.Data.Teams.All().Where(x => x.Id == id).Project()
                 .To<TeamDetailsViewModel>().First();
 
