@@ -1,16 +1,14 @@
-﻿using AutoMapper;
-using FLMS.Data;
-using FLMS.Data.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using FLMS.Web.ViewModels.Comment;
-
-namespace FLMS.Web.Controllers
+﻿namespace FLMS.Web.Controllers
 {
+    using System.Web;
+    using System.Web.Mvc;
+
+    using AutoMapper;
+    using FLMS.Data;
+    using FLMS.Data.Models;
+    using FLMS.Web.ViewModels.Comment;
+    using Microsoft.AspNet.Identity;
+
     public class CommentsController : BaseController
     {
         public CommentsController(IFlmsData data) : base(data)
@@ -37,7 +35,7 @@ namespace FLMS.Web.Controllers
 
                 var viewModel = Mapper.Map<TeamCommentViewModel>(dbComment);
 
-                return PartialView("_TeamCommentPartial", viewModel);
+                return this.PartialView("_TeamCommentPartial", viewModel);
             }
 
             throw new HttpException(400, "Invalid comment");

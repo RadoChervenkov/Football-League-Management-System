@@ -1,15 +1,14 @@
 ﻿namespace FLMS.Web.Areas.Management.ViewModels.Match
 {
-    using FLMS.Web.Infrastructure.Mapping;
-    using FLMS.Data.Models;
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
     using System.Web.Mvc;
 
-    public class MatchResultInputModel: IMapFrom<Match>, IHaveCustomMappings
+    using FLMS.Data.Models;
+    using FLMS.Web.Infrastructure.Mapping;
+
+    public class MatchResultInputModel : IMapFrom<Match>, IHaveCustomMappings
     {
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
 
         public string Name { get; set; }

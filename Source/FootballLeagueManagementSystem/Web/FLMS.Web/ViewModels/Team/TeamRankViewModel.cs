@@ -1,11 +1,7 @@
 ﻿namespace FLMS.Web.ViewModels.Team
 {
-    using FLMS.Web.Infrastructure.Mapping;
     using FLMS.Data.Models;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
+    using FLMS.Web.Infrastructure.Mapping;
 
     public class TeamRankViewModel : IMapFrom<Team>
     {

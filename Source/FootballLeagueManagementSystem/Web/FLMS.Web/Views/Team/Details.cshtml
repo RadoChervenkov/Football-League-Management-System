@@ -48,6 +48,7 @@
     @Html.Partial("_PostTeamCommentPartial", new PostTeamCommentViewModel(Model.Id))
 }
 
+<h3>Comments for team</h3>
 <div id="comments">
     @foreach (var comment in Model.Comments)
     {

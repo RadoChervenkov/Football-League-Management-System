@@ -1,15 +1,13 @@
-﻿using FLMS.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using AutoMapper.QueryableExtensions;
-using FLMS.Web.ViewModels.League;
-using FLMS.Data.Models;
-
-namespace FLMS.Web.Controllers
+﻿namespace FLMS.Web.Controllers
 {
+    using System.Linq;
+    using System.Web.Mvc;
+
+    using AutoMapper.QueryableExtensions;
+    using FLMS.Data;
+    using FLMS.Data.Models;
+    using FLMS.Web.ViewModels.League;
+
     public class HomeController : BaseController
     {
         public HomeController(IFlmsData data) : base(data)
@@ -19,7 +17,7 @@ namespace FLMS.Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            return this.View();
         }
 
         [OutputCache(Duration = 60 * 60)]
@@ -54,21 +52,14 @@ namespace FLMS.Web.Controllers
                     team.Loses = totalLoses;
                     team.Draws = totalDraws;
 
-                    team.Points += (totalWins * 3);
+                    team.Points += totalWins * 3;
                     team.Points += totalDraws;
                 }
 
                 currentLeague.Teams = currentLeague.Teams.OrderByDescending(x => x.Points).ToList();
             }
             
-            return PartialView("_LeaguesPartial", leagues);
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return this.PartialView("_LeaguesPartial", leagues);
         }
     }
 }

@@ -1,12 +1,9 @@
 ﻿namespace FLMS.Web.ViewModels.Comment
 {
+    using System.ComponentModel.DataAnnotations;
+
     using FLMS.Data.Models;
     using FLMS.Web.Infrastructure.Mapping;
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Web;
 
     public class PostTeamCommentViewModel : IMapFrom<TeamComment>
     {

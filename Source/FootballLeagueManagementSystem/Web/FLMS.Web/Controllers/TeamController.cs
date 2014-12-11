@@ -1,13 +1,14 @@
 ﻿namespace FLMS.Web.Controllers
 {
     using System.Linq;
+    using System.Web;
     using System.Web.Mvc;
-    using FLMS.Data;
-    using FLMS.Web.ViewModels.Team;
+
     using AutoMapper;
     using AutoMapper.QueryableExtensions;
+    using FLMS.Data;
     using FLMS.Data.Models;
-    using System.Web;
+    using FLMS.Web.ViewModels.Team;
 
     public class TeamController : BaseController
     {
@@ -20,7 +21,7 @@
         {
             var teams = this.Data.Teams.All().Project().To<TeamListViewModel>().ToList();
 
-            return View(teams);
+            return this.View(teams);
         }
 
         [HttpGet]
@@ -34,14 +35,14 @@
                 throw new HttpException(404, "Team not found");
             }
 
-            return View(team);
+            return this.View(team);
         }
 
         [Authorize]
         [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            return this.View();
         }
 
         [Authorize]
@@ -58,17 +59,17 @@
 
                 var id = dbTeam.Id;
 
-                return RedirectToAction("Details", new { id = id });
+                return this.RedirectToAction("Details", new { id = id });
             }
 
-            return View(team);
+            return this.View(team);
         }
 
         [Authorize]
         public ActionResult LoadPlayersForm(int count)
         {
             ViewBag.PlayersCount = count;
-            return PartialView("_PlayersForm");
+            return this.PartialView("_PlayersForm");
         }
     }
 }

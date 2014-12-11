@@ -1,12 +1,9 @@
 ﻿namespace FLMS.Web.ViewModels.Team
 {
-    using FLMS.Web.Infrastructure.Mapping;
-    using FLMS.Data.Models;
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using System.ComponentModel.DataAnnotations;
+
+    using FLMS.Data.Models;
+    using FLMS.Web.Infrastructure.Mapping;
     using FLMS.Web.ViewModels.Comment;
     using FLMS.Web.ViewModels.Player;
 
@@ -14,8 +11,6 @@
     {
         public int Id { get; set; }
 
-        [Required]
-        [StringLength(100)]
         public string Name { get; set; }
 
         public string League { get; set; }

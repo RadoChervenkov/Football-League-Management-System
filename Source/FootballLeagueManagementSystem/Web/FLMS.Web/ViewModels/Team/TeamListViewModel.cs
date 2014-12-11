@@ -1,12 +1,8 @@
 ﻿namespace FLMS.Web.ViewModels.Team
 {
-    using FLMS.Web.Infrastructure.Mapping;
-    using FLMS.Data.Models;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
     using AutoMapper;
+    using FLMS.Data.Models;
+    using FLMS.Web.Infrastructure.Mapping;
 
     public class TeamListViewModel : IMapFrom<Team>, IHaveCustomMappings
     {

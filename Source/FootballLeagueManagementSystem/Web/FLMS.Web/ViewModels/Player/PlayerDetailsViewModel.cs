@@ -3,8 +3,8 @@
     using System;
 
     using AutoMapper;
-    using FLMS.Web.Infrastructure.Mapping;
     using FLMS.Data.Models;
+    using FLMS.Web.Infrastructure.Mapping;
 
     public class PlayerDetailsViewModel : IMapFrom<Player>, IHaveCustomMappings
     {

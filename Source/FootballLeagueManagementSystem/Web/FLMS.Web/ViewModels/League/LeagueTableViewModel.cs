@@ -1,12 +1,10 @@
 ﻿namespace FLMS.Web.ViewModels.League
 {
-    using FLMS.Web.Infrastructure.Mapping;
-    using FLMS.Data.Models;
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-using FLMS.Web.ViewModels.Team;
+
+    using FLMS.Data.Models;
+    using FLMS.Web.Infrastructure.Mapping;
+    using FLMS.Web.ViewModels.Team;
 
     public class LeagueTableViewModel : IMapFrom<League>
     {

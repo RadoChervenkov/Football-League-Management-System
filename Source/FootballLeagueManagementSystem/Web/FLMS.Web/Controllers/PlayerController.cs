@@ -1,14 +1,13 @@
-﻿using FLMS.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using AutoMapper.QueryableExtensions;
-using FLMS.Web.ViewModels.Player;
-
-namespace FLMS.Web.Controllers
+﻿namespace FLMS.Web.Controllers
 {
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+
+    using AutoMapper.QueryableExtensions;
+    using FLMS.Data;
+    using FLMS.Web.ViewModels.Player;
+
     public class PlayerController : BaseController
     {
         public PlayerController(IFlmsData data) : base(data)
@@ -24,14 +23,14 @@ namespace FLMS.Web.Controllers
                 throw new HttpException(404, "Player not found");
             }
 
-            return View(player);
+            return this.View(player);
         }
 
         public ActionResult All()
         {
             var players = this.Data.Players.All().Project().To<PlayerListViewModel>().ToList();
 
-            return View(players);
+            return this.View(players);
         }
     }
 }

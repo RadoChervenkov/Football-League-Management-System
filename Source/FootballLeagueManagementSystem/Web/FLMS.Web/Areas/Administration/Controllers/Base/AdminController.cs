@@ -5,7 +5,7 @@
     using FLMS.Data;
     using FLMS.Web.Controllers;
 
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Administrator")]
     public abstract class AdminController : BaseController
     {
         public AdminController(IFlmsData data) : base(data)

@@ -1,7 +1,7 @@
-﻿using System.Web.Mvc;
-
-namespace FLMS.Web.Areas.Management
+﻿namespace FLMS.Web.Areas.Management
 {
+    using System.Web.Mvc;
+
     public class ManagementAreaRegistration : AreaRegistration 
     {
         public override string AreaName 
@@ -17,9 +17,7 @@ namespace FLMS.Web.Areas.Management
             context.MapRoute(
                 "Management_default",
                 "Management/{controller}/{action}/{id}",
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-                //namespaces: new[] { "FLMS.Web.Areas.Management.Controllers" }
-            );
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional });
         }
     }
 }

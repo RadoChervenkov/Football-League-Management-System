@@ -1,12 +1,10 @@
 ﻿namespace FLMS.Web.ViewModels.Player
 {
-    using FLMS.Web.Infrastructure.Mapping;
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
-    using FLMS.Data.Models;
     using System.ComponentModel.DataAnnotations;
+
+    using FLMS.Data.Models;
+    using FLMS.Web.Infrastructure.Mapping;
 
     public class PlayerInputModel : IMapFrom<Player>
     {
